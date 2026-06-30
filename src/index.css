@@ -1,0 +1,203 @@
+@import 'tailwindcss';
+@theme {
+  /* Dark section tokens — hero, footer */
+  --color-background: #111c13;
+  --color-foreground: #dde8de;
+  --color-card: #172019;
+  --color-primary: #7ab87a;
+  --color-primary-foreground: #0f1f10;
+  --color-secondary: #1c2a1e;
+  --color-secondary-foreground: #9dcc8f;
+  --color-muted: #223226;
+  --color-muted-foreground: #5a7a5c;
+  --color-border: #1c2e1e;
+  --radius: 0.75rem;
+  --color-highlight: #d4892a;
+  --color-highlight-foreground: #6b3d00;
+  --color-surface: #141e15;
+
+  /* Light section tokens — body, cards, sections */
+  --color-light-bg: #ffffff;
+  --color-light-alt: #f5f7f4;
+  --color-light-card: #ffffff;
+  --color-border-light: #dde8dd;
+  --color-text-dark: #111c13;
+  --color-text-body: #4a6b4c;
+  --color-text-muted: #7a8c7b;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-light-bg);
+    color: var(--color-text-dark);
+    font-family: 'Inter', sans-serif;
+  }
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .glass {
+    background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+    backdrop-filter: blur(16px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+  }
+  .glass-strong {
+    background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    backdrop-filter: blur(16px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
+  }
+  .glow-text {
+    text-shadow: 0 0 30px
+      color-mix(in srgb, var(--color-primary) 40%, transparent);
+  }
+  .glow-border {
+    box-shadow:
+      0 0 20px color-mix(in srgb, var(--color-primary) 15%, transparent),
+      inset 0 0 20px color-mix(in srgb, var(--color-primary) 5%, transparent);
+  }
+  .animated-border:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 8%, transparent);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 0 20px
+      color-mix(in srgb, var(--color-primary) 15%, transparent);
+  }
+
+  /* Button styles */
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+    border-radius: 999px;
+    padding: 11px 28px;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+  }
+  .btn-secondary {
+    background-color: #e8ede8;
+    color: var(--color-text-dark);
+    border-radius: 999px;
+    padding: 11px 28px;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+  }
+  .btn-light-primary {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+    border-radius: 999px;
+    padding: 11px 28px;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+  }
+  .btn-light-outline {
+    background-color: transparent;
+    color: var(--color-text-dark);
+    border-radius: 999px;
+    padding: 10px 28px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid var(--color-border-light);
+  }
+}
+
+@layer utilities {
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+  @keyframes slow-drift {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(20px, -30px);
+    }
+    50% {
+      transform: translate(-15px, -20px);
+    }
+    75% {
+      transform: translate(30px, 10px);
+    }
+  }
+  @keyframes animated-border {
+    0% {
+      stroke-dashoffset: 400;
+    }
+    100% {
+      stroke-dashoffset: -550;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.4s ease-out both;
+  }
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+  .group:hover .animated-border-path {
+    animation: animated-border 1.5s linear infinite;
+  }
+  .timeline-glow {
+    box-shadow:
+      0 0 40px color-mix(in srgb, var(--color-primary) 25%, transparent),
+      0 0 80px color-mix(in srgb, var(--color-primary) 15%, transparent);
+  }
+}
