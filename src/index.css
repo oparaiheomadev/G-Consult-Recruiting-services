@@ -24,6 +24,7 @@
   --color-text-dark: #111c13;
   --color-text-body: #4a6b4c;
   --color-text-muted: #7a8c7b;
+  --color-off-white: #dde8de;
 }
 
 @layer base {
@@ -36,7 +37,6 @@
     font-family: 'Inter', sans-serif;
   }
   .font-serif {
-    font-family: 'Playfair Display', serif;
   }
   button {
     cursor: pointer;

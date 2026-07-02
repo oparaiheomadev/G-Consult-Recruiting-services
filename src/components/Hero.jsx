@@ -20,7 +20,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="bg-background min-h-screen flex flex-col items-center justify-center text-center px-6 pt-4">
+    <section className="bg-background min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24">
       {/* Badge */}
       <div className="flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-8">
         <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
@@ -30,7 +30,7 @@ export default function Hero() {
       </div>
 
       {/* Headline */}
-      <h2 className="text-foreground font-bold text-3xl md:text-5xl tracking-wider max-w-3xl mb-6 ">
+      <h2 className="text-foreground font-bold text-3xl md:text-5xl tracking-wider max-w-3xl mb-8 ">
         We don't fill roles. We find people who{' '}
         <span
           className="text-secondary-foreground glass-strong rounded-md px-4 py-1 inline-block align-middle glow-text animate-pulse"
@@ -41,7 +41,7 @@ export default function Hero() {
       </h2>
 
       {/* Subtext */}
-      <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-lg mb-10">
+      <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-lg mb-12">
         TalentBridge connects forward-thinking organisations with exceptional
         professionals — across every sector, at every level.
       </p>
