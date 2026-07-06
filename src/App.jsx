@@ -10,7 +10,7 @@ import Preloader from './components/Perloader';
 function App() {
   return (
     <div>
-      <Preloader />
+      {/* <Preloader /> */}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -90,6 +90,7 @@ export default function HowItWorks() {
                   ? 'bg-primary/10 border-primary/30'
                   : 'bg-card border-border'
               }`}
+              style={{ animationDelay: `${index * 150}ms` }}
             >
               {/* Popular badge */}
               {step.popular && (

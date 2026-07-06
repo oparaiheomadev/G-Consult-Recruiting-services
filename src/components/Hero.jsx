@@ -22,9 +22,9 @@ export default function Hero() {
   return (
     <section className="bg-background min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24">
       {/* Badge */}
-      <div className="flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-8">
+      <div className="flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-8 animate-fade-in">
         <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-        <span className="text-primary text-xs">
+        <span className="text-primary text-xs animate-fade-in">
           Trusted by 180+ organisations across Nigeria
         </span>
       </div>

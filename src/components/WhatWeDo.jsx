@@ -65,7 +65,7 @@ export default function WhatWeDo() {
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-14">
-          <p className="text-xs uppercase tracking-widest text-text-muted mb-3">
+          <p className="text-xs uppercase tracking-widest text-text-muted mb-3 ">
             What we offer
           </p>
           <h2 className="font-serif text-3xl md:text-4xl font-medium text-text-dark max-w-xl mx-auto leading-tight">
@@ -75,14 +75,14 @@ export default function WhatWeDo() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6  mx-auto">
           {services.map((service, index) => {
             const Icon = service.icon;
 
             return (
               <div
                 key={index}
-                className={`relative rounded-xl p-7 flex flex-col animate-fade-in ${
+                className={`relative rounded-xl p-9 flex flex-col animate-fade-in ${
                   index === 0
                     ? 'animation-delay-100'
                     : index === 1
