@@ -5,7 +5,6 @@ import HowItWorks from '../components/HowItWorks';
 import WhatWeDo from '../components/WhatWeDo';
 import Testimonials from '../components/Testimonials';
 import CTABanner from '../components/CTABanner';
-import Footer from '../components/Footer';
 
 export default function Home() {
   return (
@@ -16,8 +15,7 @@ export default function Home() {
       <HowItWorks />
       <WhatWeDo />
       <Testimonials />
-      <CTABanner />
-      <Footer />
+      <CTABanner buttonClassName="bg-transparent text-foreground border border-white rounded-lg" />
     </main>
   );
 }

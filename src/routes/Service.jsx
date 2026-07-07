@@ -1,18 +1,28 @@
+import HeroBanner from '../components/HeroBanner';
+import service from '../assets/service.jpg';
+import teamsBg from '../assets/teams.jpg';
+import CoreServices from '../components/CoreServices';
+import CTABanner from '../components/CTABanner';
+
 export default function Service() {
   return (
-    <section className="min-h-screen  w-full bg-slate-50  flex items-center justify-center">
-      <div className="flex flex-col items-start max-w-3xl gap-5">
-        <h1 className="text-6xl font-bold text-black text-center mt-20">
-          Service{' '}
-        </h1>
-        <p>
-          {' '}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-          illo, nesciunt in voluptate cumque laudantium cupiditate et magnam
-          consequuntur? Recusandae doloremque id reiciendis quae laudantium sit
-          minima perspiciatis dolore voluptatem.
-        </p>
-      </div>
-    </section>
+    <main>
+      <HeroBanner
+        image={service}
+        badge="what we offer"
+        title="Recruitment that is "
+        highlight="beyond the CV"
+        description="Whether you're building a team from scratch or replacing a critical role, we have the expertise to get it right."
+      />
+      <CoreServices />
+      <CTABanner
+        title="Not sure which services fits?"
+        description="Tell us about your open role and we'll have a shortlist on your desk within 48 hours."
+        buttonText="Book a free Call"
+        buttonLink="/contact"
+        buttonClassName="bg-transparent text-foreground border border-white rounded-lg"
+      />
+    </main>
   );
 }
+// bg-transparent text-primary-foreground border border-primary-foreground

@@ -13,9 +13,9 @@ const footerLinks = {
     { label: 'HR consulting', to: '/services' },
   ],
   Contact: [
-    { label: 'hello@gconsult.ng', to: '/contact' },
-    { label: '+234 800 000 0000', to: '/contact' },
-    { label: 'Lagos · Abuja', to: '/contact' },
+    { label: 'gconsultrecruitments@gmail.com', to: '/contact' },
+    { label: '+234 8106863792', to: '/contact' },
+    { label: 'Lagos', to: '/contact' },
   ],
 };
 
