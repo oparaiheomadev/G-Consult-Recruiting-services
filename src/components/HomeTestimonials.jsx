@@ -25,7 +25,7 @@ const testimonials = [
   },
 ];
 
-export default function Testimonial() {
+export default function HomeTestimonials() {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {

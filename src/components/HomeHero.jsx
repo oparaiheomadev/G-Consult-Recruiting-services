@@ -9,7 +9,7 @@ const rotatingWords = [
   'shape futures.',
 ];
 
-export default function Hero() {
+export default function HomeHero() {
   const [currentWord, setCurrentWord] = useState(0);
 
   useEffect(() => {

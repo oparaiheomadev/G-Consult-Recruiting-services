@@ -52,7 +52,7 @@ const steps = [
   },
 ];
 
-export default function HowItWorks() {
+export default function HomeHowItWorks() {
   return (
     <section
       className="relative bg-background bg-cover bg-center bg-no-repeat px-6 py-24"

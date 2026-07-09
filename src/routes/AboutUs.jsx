@@ -1,18 +1,31 @@
+import HeroBanner from '../components/HeroBanner';
+import service from '../assets/service.jpg';
+import Aboutus from '../assets/aboutus.jpg';
+import CTABanner from '../components/CTABanner';
+import About from '../components/About';
+import AboutSector from '../components/AboutSector';
+import AboutCommitments from '../components/AboutCommitments';
 export default function AboutUs() {
   return (
-    <section className="min-h-screen  w-full bg-slate-50  flex items-center justify-center">
-      <div className="flex flex-col items-start max-w-3xl gap-5">
-        <h1 className="text-6xl font-bold text-black text-center mt-20">
-          About US{' '}
-        </h1>
-        <p>
-          {' '}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-          illo, nesciunt in voluptate cumque laudantium cupiditate et magnam
-          consequuntur? Recusandae doloremque id reiciendis quae laudantium sit
-          minima perspiciatis dolore voluptatem.
-        </p>
-      </div>
-    </section>
+    <main>
+      <HeroBanner
+        badge="Our Story"
+        image={Aboutus}
+        title="We built G-Consult because "
+        highlight="great hiring shouldn't be this hard"
+        description="Founded in Lagos in 2018, we've grown into Nigeria's most trusted recruitment partner — placing over 1,200 professionals across every sector."
+        OverlayClassName="bg-background/65"
+      />
+      <About />
+      <AboutSector />
+      <AboutCommitments />
+      <CTABanner
+        title="Want to work with a team that cares?"
+        description="Let's talk about your next hire or your next career move."
+        buttonText="Get in touch"
+        buttonLink="/contact"
+        buttonClassName="bg-transparent text-foreground border border-white rounded-lg"
+      />
+    </main>
   );
 }

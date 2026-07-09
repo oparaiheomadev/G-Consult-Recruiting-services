@@ -10,6 +10,7 @@ export default function HeroBanner({
   primaryLink,
   secondaryText,
   secondaryLink,
+  OverlayClassName = 'bg-background/80',
 }) {
   return (
     <section
@@ -17,7 +18,7 @@ export default function HeroBanner({
       style={{ backgroundImage: `url(${image})` }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-background/80" />
+      <div className={`absolute inset-0 ${OverlayClassName}`} />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto max-w-3xl text-center">

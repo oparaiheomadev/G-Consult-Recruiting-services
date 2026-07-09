@@ -65,7 +65,7 @@ function CountUp({ target, suffix, delay }) {
   );
 }
 
-export default function Stats() {
+export default function HomeStats() {
   return (
     <section className="bg-off-white border-b border-border-light">
       <div className="container mx-auto px-6 py-5">

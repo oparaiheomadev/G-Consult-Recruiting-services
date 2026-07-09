@@ -59,7 +59,7 @@ const services = [
   },
 ];
 
-export default function WhatWeDo() {
+export default function HomeWhatWeDo() {
   return (
     <section className="bg-light-alt py-20 px-6">
       <div className="container mx-auto">
