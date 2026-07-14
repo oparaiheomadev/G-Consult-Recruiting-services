@@ -1,18 +1,26 @@
+import HeroBanner from '../components/HeroBanner';
+import Industries2 from '../assets/industries2.jpg';
+import IndustryTypes from '../components/IndustryTypes';
+import CTABanner from '../components/CTABanner';
+
 export default function Industries() {
   return (
-    <section className="min-h-screen  w-full bg-slate-50  flex items-center justify-center">
-      <div className="flex flex-col items-start max-w-3xl gap-5">
-        <h1 className="text-6xl font-bold text-black text-center mt-20">
-          Industries{' '}
-        </h1>
-        <p>
-          {' '}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-          illo, nesciunt in voluptate cumque laudantium cupiditate et magnam
-          consequuntur? Recusandae doloremque id reiciendis quae laudantium sit
-          minima perspiciatis dolore voluptatem.
-        </p>
-      </div>
-    </section>
+    <main>
+      <HeroBanner
+        image={Industries2}
+        badge="Sector expertise"
+        title="Deep knowledge of the industries"
+        highlight="where talent matters most."
+        description="Our consultants specialise  so they know what good actually looks like in your sector."
+      />
+      <IndustryTypes />
+      <CTABanner
+        title="Dont See Your sector?"
+        description="We've placed talent in 12+ industries. Let's talk"
+        buttonText="Talk to a specilaist"
+        buttonLink="/contact"
+        buttonClassName="bg-transparent text-foreground border border-white rounded-lg"
+      />
+    </main>
   );
 }
