@@ -63,7 +63,6 @@ export default function HomeHero() {
         >
           Browse open roles →
         </Link>
-        <Button>Get in touch</Button>
       </div>
     </section>
   );

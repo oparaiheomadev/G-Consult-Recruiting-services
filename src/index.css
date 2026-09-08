@@ -173,66 +173,6 @@
    Button lands and the pages are switched over.
    ============================================================ */
 
-@layer components {
-  .glass {
-    background-color: color-mix(in srgb, var(--surface) 50%, transparent);
-    backdrop-filter: blur(16px);
-    border: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
-  }
-
-  .glass-strong {
-    background-color: color-mix(in srgb, var(--surface) 80%, transparent);
-    backdrop-filter: blur(16px);
-    border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
-  }
-
-  .glow-text {
-    text-shadow: 0 0 30px color-mix(in srgb, var(--primary) 40%, transparent);
-  }
-
-  .glow-border {
-    box-shadow:
-      0 0 20px color-mix(in srgb, var(--primary) 15%, transparent),
-      inset 0 0 20px color-mix(in srgb, var(--primary) 5%, transparent);
-  }
-
-  .animated-border:hover {
-    background-color: color-mix(in srgb, var(--primary) 8%, transparent);
-    backdrop-filter: blur(16px);
-    box-shadow: 0 0 20px color-mix(in srgb, var(--primary) 15%, transparent);
-  }
-
-  .btn-primary {
-    background-color: var(--primary);
-    color: var(--primary-foreground);
-    border-radius: 999px;
-    padding: 11px 28px;
-    font-size: 13px;
-    font-weight: 500;
-    border: none;
-  }
-
-  .btn-secondary {
-    background-color: var(--secondary);
-    color: var(--secondary-foreground);
-    border-radius: 999px;
-    padding: 11px 28px;
-    font-size: 13px;
-    font-weight: 500;
-    border: none;
-  }
-
-  .btn-outline {
-    background-color: transparent;
-    color: var(--foreground);
-    border-radius: 999px;
-    padding: 10px 28px;
-    font-size: 13px;
-    font-weight: 500;
-    border: 1px solid var(--border);
-  }
-}
-
 /* ============================================================
    5. Animation
    ============================================================ */
