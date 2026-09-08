@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 
 import { useEffect, useState } from 'react';
+import { Button } from '@/components/ui/button';
 
 const rotatingWords = [
   'move markets',
@@ -62,6 +63,7 @@ export default function HomeHero() {
         >
           Browse open roles →
         </Link>
+        <Button>Get in touch</Button>
       </div>
     </section>
   );
