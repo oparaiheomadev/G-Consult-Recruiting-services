@@ -1,7 +1,7 @@
-import HeroBanner from '../components/HeroBanner';
+import HeroBanner from '../components/section/HeroBanner';
 import Industries2 from '../assets/industries2.jpg';
-import IndustryTypes from '../components/IndustryTypes';
-import CTABanner from '../components/CTABanner';
+import IndustryTypes from '../components/section/IndustryTypes';
+import CTABanner from '../components/section/CTABanner';
 
 export default function Industries() {
   return (

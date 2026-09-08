@@ -61,16 +61,18 @@ const services = [
 
 export default function HomeWhatWeDo() {
   return (
-    <section className="bg-light-alt py-20 px-6">
+    <section className="bg-surface py-20 px-6">
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-14">
-          <p className="text-xs uppercase tracking-widest text-text-muted mb-3 ">
+          <p className="text-xs uppercase tracking-widest text-subtle mb-3 ">
             What we offer
           </p>
-          <h2 className="font-serif text-3xl md:text-4xl font-medium text-text-dark max-w-xl mx-auto leading-tight">
+          <h2 className="font-serif text-3xl md:text-4xl font-medium text-foreground max-w-xl mx-auto leading-tight">
             Every kind of hire.{' '}
-            <em className="not-italic text-text-body">One trusted partner.</em>
+            <em className="not-italic text-muted-foreground">
+              One trusted partner.
+            </em>
           </h2>
         </div>
 
@@ -93,7 +95,7 @@ export default function HomeWhatWeDo() {
                 } ${
                   service.popular
                     ? 'bg-background border border-border'
-                    : 'bg-light-card border border-border-light'
+                    : 'bg-cardbg-cardborder border-border'
                 }`}
               >
                 {/* Popular badge */}
@@ -106,13 +108,13 @@ export default function HomeWhatWeDo() {
                 {/* Icon */}
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center mb-4 ${
-                    service.popular ? 'bg-primary/20' : 'bg-light-alt'
+                    service.popular ? 'bg-primary/20' : 'bg-surface'
                   }`}
                 >
                   <Icon
                     size={18}
                     className={
-                      service.popular ? 'text-primary' : 'text-text-body'
+                      service.popular ? 'text-primary' : 'text-muted-foreground'
                     }
                   />
                 </div>
@@ -120,9 +122,7 @@ export default function HomeWhatWeDo() {
                 {/* Tier label */}
                 <p
                   className={`text-xs uppercase tracking-widest mb-2 ${
-                    service.popular
-                      ? 'text-muted-foreground'
-                      : 'text-text-muted'
+                    service.popular ? 'text-muted-foreground' : 'text-subtle'
                   }`}
                 >
                   {service.tier}
@@ -131,7 +131,7 @@ export default function HomeWhatWeDo() {
                 {/* Title */}
                 <h3
                   className={`font-serif text-2xl font-medium mb-1 ${
-                    service.popular ? 'text-foreground' : 'text-text-dark'
+                    service.popular ? 'text-foreground' : 'text-foreground'
                   }`}
                 >
                   {service.title}
@@ -140,9 +140,7 @@ export default function HomeWhatWeDo() {
                 {/* Description */}
                 <p
                   className={`text-sm mb-6 ${
-                    service.popular
-                      ? 'text-muted-foreground'
-                      : 'text-text-muted'
+                    service.popular ? 'text-muted-foreground' : 'text-subtle'
                   }`}
                 >
                   {service.description}
@@ -164,7 +162,9 @@ export default function HomeWhatWeDo() {
                       </span>
                       <span
                         className={`text-sm font-medium ${
-                          service.popular ? 'text-foreground' : 'text-text-dark'
+                          service.popular
+                            ? 'text-foreground'
+                            : 'text-foreground'
                         }`}
                       >
                         {feature}
@@ -178,7 +178,7 @@ export default function HomeWhatWeDo() {
                   className={`w-full py-3 rounded-xl text-sm font-semibold transition hover:opacity-90 ${
                     service.popular
                       ? 'bg-primary text-primary-foreground'
-                      : 'bg-light-alt text-text-dark border border-border-light hover:bg-primary hover:text-primary-foreground hover:border-primary'
+                      : 'bg-surface text-foreground border border-border hover:bg-primary hover:text-primary-foreground hover:border-primary'
                   }`}
                 >
                   Select {service.title}

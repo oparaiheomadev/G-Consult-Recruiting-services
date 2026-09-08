@@ -1,29 +1,43 @@
-import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './routes/Home';
-import Contact from './routes/Contact';
-import Industries from './routes/Industries';
-import Service from './routes/Service';
-import AboutUs from './routes/AboutUs';
-import Footer from './components/Footer';
+import { Routes, Route, useLocation } from 'react-router';
+import Navbar from './components/layout/Navbar';
+import Home from './pages/Home';
+import Contact from './pages/Contact';
+import Industries from './pages/Industries';
+import Service from './pages/Service';
+import AboutUs from './pages/AboutUs';
+import Footer from './components/layout/Footer';
+import ProtectedRoute from './components/layout/ProtectedRoute';
+import AdminLogin from './admin/AdminLogin';
+import AdminDashboard from './admin/AdminDashboard';
 
-import Preloader from './components/Perloader';
+import Preloader from './components/layout/Perloader';
 
 function App() {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
   return (
     <div>
       {/* <Preloader /> */}
-      <Navbar />
+      {!isAdminRoute && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/services" element={<Service />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
-      <Footer />
+      {!isAdminRoute && <Footer />}
     </div>
   );
 }
-
 export default App;

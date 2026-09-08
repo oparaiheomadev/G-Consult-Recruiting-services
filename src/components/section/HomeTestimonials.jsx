@@ -44,14 +44,14 @@ export default function HomeTestimonials() {
   }
 
   return (
-    <section className="bg-off-white py-10 px-6">
+    <section className="bg-foreground py-10 px-6">
       <div className="container mx-auto max-w-4xl">
         {/* Header */}
         <div className="mb-8">
           <p className="text-xs uppercase tracking-widest text-primary mb-3">
             Client voice
           </p>
-          <h2 className="font-serif text-2xl md:text-3xl font-medium text-text-dark max-w-md leading-tight">
+          <h2 className="font-serif text-2xl md:text-3xl font-medium text-foreground max-w-md leading-tight">
             Trusted by teams building for the long run
           </h2>
         </div>

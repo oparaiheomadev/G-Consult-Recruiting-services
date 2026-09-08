@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 import { useEffect, useState } from 'react';
 
@@ -20,11 +20,11 @@ export default function HomeHero() {
   }, []);
 
   return (
-    <section className="bg-background min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24">
+    <section className="bg-background min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 dark">
       {/* Badge */}
-      <div className="flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-8 animate-fade-in">
+      <div className="flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-8 ">
         <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-        <span className="text-primary text-xs animate-fade-in">
+        <span className="text-primary text-xs">
           Trusted by 180+ organisations across Nigeria
         </span>
       </div>

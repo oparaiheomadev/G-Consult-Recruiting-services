@@ -67,11 +67,11 @@ function CountUp({ target, suffix, delay }) {
 
 export default function HomeStats() {
   return (
-    <section className="bg-off-white border-b border-border-light">
+    <section className="bg-foreground border-b border-border">
       <div className="container mx-auto px-6 py-5">
         {/* Section intro */}
         <div className="text-center mb-12 animate-fade-in">
-          <p className="text-xs uppercase tracking-widest text-text-muted mb-2">
+          <p className="text-xs uppercase tracking-widest text-subtle mb-2">
             By the numbers
           </p>
           <h2 className="font-serif text-2xl md:text-3xl text-primary-foreground">
@@ -92,7 +92,7 @@ export default function HomeStats() {
                     : 'animation-delay-500'
               } ${
                 index < stats.length - 1
-                  ? 'border-b border-border-light md:border-b-0 md:border-r md:border-border-light'
+                  ? 'border-b border-border md:border-b-0 md:border-r md:border-border'
                   : ''
               }`}
             >

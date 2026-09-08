@@ -1,4 +1,4 @@
-import teamsBg from '../assets/teams.jpg';
+import teamsBg from '@/assets/teams.jpg';
 
 const steps = [
   {

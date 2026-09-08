@@ -7,16 +7,16 @@ const team = [
 
 export default function AboutTeam() {
   return (
-    <section className="bg-light-bg py-20 px-6">
+    <section className="bg-background py-20 px-6">
       <div className="container mx-auto max-w-5xl">
         <div className="mb-10">
-          <p className="text-xs uppercase tracking-widest text-text-muted mb-3">
+          <p className="text-xs uppercase tracking-widest text-subtle mb-3">
             The team
           </p>
-          <h2 className="font-serif text-2xl md:text-3xl font-medium text-text-dark leading-tight">
+          <h2 className="font-serif text-2xl md:text-3xl font-medium text-foreground leading-tight">
             Recruiters who've sat on both sides of the table
           </h2>
-          <p className="text-sm text-text-muted mt-3 max-w-lg leading-relaxed">
+          <p className="text-sm text-subtle mt-3 max-w-lg leading-relaxed">
             Our consultants come from the industries they recruit in — sharper
             briefs, better candidates, conversations that skip the fluff.
           </p>
@@ -26,7 +26,7 @@ export default function AboutTeam() {
           {team.map((member, index) => (
             <div
               key={index}
-              className={`bg-light-card border border-border-light rounded-xl overflow-hidden animate-fade-in ${
+              className={`bg-cardbg-cardborder border-border rounded-xl overflow-hidden animate-fade-in ${
                 index === 0
                   ? 'animation-delay-100'
                   : index === 1
@@ -53,10 +53,10 @@ export default function AboutTeam() {
                 </svg>
               </div>
               <div className="px-5 py-4">
-                <p className="text-sm font-medium text-text-dark">
+                <p className="text-sm font-medium text-foreground">
                   {member.name}
                 </p>
-                <p className="text-xs text-text-muted mt-1">{member.role}</p>
+                <p className="text-xs text-subtle mt-1">{member.role}</p>
               </div>
             </div>
           ))}

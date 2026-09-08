@@ -47,17 +47,17 @@ const industries = [
 
 export default function AboutSector() {
   return (
-    <section className="bg-light-alt py-20 px-6">
+    <section className="bg-surface py-20 px-6">
       <div className="container mx-auto max-w-5xl">
         {/* Header */}
         <div className="text-center mb-14">
-          <p className="text-xs uppercase tracking-widest text-text-muted mb-3">
+          <p className="text-xs uppercase tracking-widest text-subtle mb-3">
             Sector expertise
           </p>
-          <h2 className="font-serif text-2xl md:text-3xl font-medium text-text-dark">
+          <h2 className="font-serif text-2xl md:text-3xl font-medium text-foreground">
             Industries we know inside out
           </h2>
-          <p className="text-sm text-text-muted mt-3 max-w-lg mx-auto leading-relaxed">
+          <p className="text-sm text-subtle mt-3 max-w-lg mx-auto leading-relaxed">
             Our consultants don't just know recruitment — they know your
             industry.
           </p>
@@ -68,7 +68,7 @@ export default function AboutSector() {
           {industries.map((industry, index) => (
             <div
               key={index}
-              className={`bg-light-card border border-border-light rounded-xl p-7 animate-fade-in ${
+              className={`bg-cardbg-cardborder border-border rounded-xl p-7 animate-fade-in ${
                 index === 0
                   ? 'animation-delay-100'
                   : index === 1
@@ -84,7 +84,7 @@ export default function AboutSector() {
               </h4>
 
               {/* Description */}
-              <p className="text-xs text-text-muted leading-relaxed mb-5">
+              <p className="text-xs text-subtle leading-relaxed mb-5">
                 {industry.description}
               </p>
 
@@ -93,7 +93,9 @@ export default function AboutSector() {
                 {industry.items.map((item, i) => (
                   <div key={i} className="flex items-center gap-2">
                     <span className="text-primary text-xs">✓</span>
-                    <span className="text-xs text-text-body">{item}</span>
+                    <span className="text-xs text-muted-foreground">
+                      {item}
+                    </span>
                   </div>
                 ))}
               </div>

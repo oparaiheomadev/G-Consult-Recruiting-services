@@ -1,9 +1,9 @@
-import financial from '../assets/financial.jpg';
-import technology from '../assets/technology.jpg';
-import healthcare from '../assets/healthcare.jpg';
-import retail from '../assets/retail.jpg';
-import education from '../assets/education.jpg';
-import ngo from '../assets/ngo.jpg';
+import financial from '../../assets/financial.jpg';
+import technology from '../../assets/technology.jpg';
+import healthcare from '../../assets/healthcare.jpg';
+import retail from '../../assets/retail.jpg';
+import education from '../../assets/education.jpg';
+import ngo from '../../assets/ngo.jpg';
 
 const industries = [
   {
@@ -49,19 +49,19 @@ const industries = [
 
 export default function IndustryTypes() {
   return (
-    <section className="bg-light-bg py-28">
+    <section className="bg-background py-28">
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
         <div className="max-w-2xl mb-16">
-          <p className="text-xs uppercase tracking-widest text-text-muted mb-3">
+          <p className="text-xs uppercase tracking-widest text-subtle mb-3">
             Industries we serve
           </p>
-          <h2 className="font-serif text-2xl md:text-3xl font-medium text-text-dark leading-tight mb-6 animate-fade-in animation-delay-100">
+          <h2 className="font-serif text-2xl md:text-3xl font-medium text-foreground leading-tight mb-6 animate-fade-in animation-delay-100">
             Built for every stage{' '}
             <em className="not-italic text-primary">of your growth</em>
           </h2>
 
-          <p className="text-sm text-text-muted leading-relaxed">
+          <p className="text-sm text-subtle leading-relaxed">
             Every industry requires a different recruitment approach. Our
             consultants understand the talent landscape and connect businesses
             with professionals who deliver long-term value
@@ -73,7 +73,7 @@ export default function IndustryTypes() {
           {industries.map((industry, index) => (
             <article
               key={index}
-              className="group overflow-hidden rounded-3xl border border-border-light bg-light-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="group overflow-hidden rounded-3xl border border-border bg-cardbg-cardtransition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               {/* Image */}
               <div className="h-60 overflow-hidden">
@@ -90,7 +90,7 @@ export default function IndustryTypes() {
                   {industry.title}
                 </h4>
 
-                <p className="text-text-body leading-7 mb-6">
+                <p className="text-muted-foreground leading-7 mb-6">
                   {industry.description}
                 </p>
               </div>

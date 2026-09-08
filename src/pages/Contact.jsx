@@ -1,6 +1,6 @@
-import HeroBanner from '../components/HeroBanner';
+import HeroBanner from '../components/section/HeroBanner';
 import get from '../assets/get.jpg';
-import ContacMessage from '../components/ContactMessage';
+import ContacMessage from '../components/section/ContactMessage';
 
 export default function Contact() {
   return (

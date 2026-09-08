@@ -1,10 +1,10 @@
-import HeroBanner from '../components/HeroBanner';
+import HeroBanner from '../components/section/HeroBanner';
 import service from '../assets/service.jpg';
 import Aboutus from '../assets/aboutus.jpg';
-import CTABanner from '../components/CTABanner';
-import About from '../components/About';
-import AboutSector from '../components/AboutSector';
-import AboutCommitments from '../components/AboutCommitments';
+import CTABanner from '../components/section/CTABanner';
+import About from '../components/section/About';
+import AboutSector from '../components/section/AboutSector';
+import AboutCommitments from '../components/section/AboutCommitments';
 export default function AboutUs() {
   return (
     <main>

@@ -7,7 +7,7 @@ export default function LogoStrip() {
   ];
 
   return (
-    <section className=" py-8 overflow-hidden bg-light-alt">
+    <section className=" py-8 overflow-hidden bg-surface">
       <p className="text-xs uppercase tracking-widest text-center mb-6 text-muted-foreground">
         Trusted by
       </p>

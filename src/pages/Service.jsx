@@ -1,8 +1,8 @@
-import HeroBanner from '../components/HeroBanner';
+import HeroBanner from '../components/section/HeroBanner';
 import service from '../assets/service.jpg';
 import teamsBg from '../assets/teams.jpg';
-import CoreServices from '../components/CoreServices';
-import CTABanner from '../components/CTABanner';
+import CoreServices from '../components/section/CoreServices';
+import CTABanner from '../components/section/CTABanner';
 
 export default function Service() {
   return (

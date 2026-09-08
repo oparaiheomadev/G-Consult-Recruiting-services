@@ -27,14 +27,14 @@ const services = [
 
 export default function CoreServices() {
   return (
-    <section className="bg-light-alt py-20 px-6">
+    <section className="bg-surface py-20 px-6">
       <div className="container mx-auto max-w-4xl">
         {/* Header */}
         <div className="mb-10">
-          <p className="text-xs uppercase tracking-widest text-text-muted mb-3">
+          <p className="text-xs uppercase tracking-widest text-subtle mb-3">
             Core services
           </p>
-          <h2 className="font-serif text-2xl md:text-3xl font-medium text-text-dark leading-tight">
+          <h2 className="font-serif text-2xl md:text-3xl font-medium text-foreground leading-tight">
             Built for every stage of your growth
           </h2>
         </div>
@@ -44,7 +44,7 @@ export default function CoreServices() {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`bg-light-card border border-border-light rounded-2xl px-7 py-6 border-l-4 border-l-primary animate-fade-in ${
+              className={`bg-cardbg-cardborder border-border rounded-2xl px-7 py-6 border-l-4 border-l-primary animate-fade-in ${
                 index === 0
                   ? 'animation-delay-100'
                   : index === 1
@@ -55,12 +55,12 @@ export default function CoreServices() {
               }`}
             >
               {/* Title */}
-              <h3 className="text-base font-semibold text-text-dark mb-2">
+              <h3 className="text-base font-semibold text-foreground mb-2">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="text-sm text-text-muted leading-relaxed mb-4">
+              <p className="text-sm text-subtle leading-relaxed mb-4">
                 {service.description}
               </p>
 
@@ -69,7 +69,7 @@ export default function CoreServices() {
                 {service.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="bg-primary/10 text-text-body border border-primary/20 text-xs font-medium px-3 py-1 rounded-full"
+                    className="bg-primary/10 text-muted-foreground border border-primary/20 text-xs font-medium px-3 py-1 rounded-full"
                   >
                     {tag}
                   </span>

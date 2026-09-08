@@ -84,7 +84,7 @@ export default function ContactMessage() {
   }
 
   return (
-    <main className="bg-light-bg min-h-screen pt-24 pb-20 px-6">
+    <main className="bg-background min-h-screen pt-24 pb-20 px-6">
       {/* Success popup */}
       {success && (
         <div className="fixed top-6 right-6 z-50 bg-background border border-primary/30 rounded-xl px-6 py-4 shadow-lg animate-fade-in flex items-center gap-3">
@@ -120,10 +120,10 @@ export default function ContactMessage() {
           <p className="text-xs uppercase tracking-widest text-primary mb-3">
             Get in touch
           </p>
-          <h1 className="font-serif text-3xl md:text-4xl font-medium text-text-dark leading-tight">
+          <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground leading-tight">
             Let's talk
           </h1>
-          <p className="text-sm text-text-muted mt-3 max-w-md leading-relaxed">
+          <p className="text-sm text-subtle mt-3 max-w-md leading-relaxed">
             Whether you're a business, hiring manager, or job seeker — we're
             here to help.
           </p>
@@ -133,7 +133,7 @@ export default function ContactMessage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {/* LEFT — contact info */}
           <div className="flex flex-col gap-4">
-            <div className="bg-light-alt border border-border-light rounded-xl p-5 flex items-start gap-4">
+            <div className="bg-surface border border-border rounded-xl p-5 flex items-start gap-4">
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                 <i
                   className="ti ti-map-pin text-primary"
@@ -145,11 +145,11 @@ export default function ContactMessage() {
                 <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-1">
                   Head office address
                 </p>
-                <p className="text-sm text-text-dark">Lagos, Nigeria</p>
+                <p className="text-sm text-foreground">Lagos, Nigeria</p>
               </div>
             </div>
 
-            <div className="bg-light-alt border border-border-light rounded-xl p-5 flex items-start gap-4">
+            <div className="bg-surface border border-border rounded-xl p-5 flex items-start gap-4">
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                 <i
                   className="ti ti-mail text-primary"
@@ -162,14 +162,14 @@ export default function ContactMessage() {
                   Email address
                 </p>
                 <a href="mailto:gconsultrecruitments@gmail.com">
-                  <p className="text-sm text-text-dark">
+                  <p className="text-sm text-foreground">
                     gconsultrecruitments@gmail.com
                   </p>
                 </a>
               </div>
             </div>
 
-            <div className="bg-light-alt border border-border-light rounded-xl p-5 flex items-start gap-4">
+            <div className="bg-surface border border-border rounded-xl p-5 flex items-start gap-4">
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                 <i
                   className="ti ti-phone text-primary"
@@ -182,13 +182,13 @@ export default function ContactMessage() {
                   Phone number
                 </p>
                 <a href="tel:+2348106863792">
-                  <p className="text-sm text-text-dark">+234 8106863792</p>
+                  <p className="text-sm text-foreground">+234 8106863792</p>
                 </a>
-                <p className="text-xs text-text-muted mt-1">Mon–Fri, 8am–6pm</p>
+                <p className="text-xs text-subtle mt-1">Mon–Fri, 8am–6pm</p>
               </div>
             </div>
 
-            <div className="bg-light-alt border border-border-light rounded-xl p-5">
+            <div className="bg-surface border border-border rounded-xl p-5">
               <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-4">
                 Connect with us
               </p>
@@ -219,7 +219,7 @@ export default function ContactMessage() {
                     key={label}
                     href={href}
                     aria-label={label}
-                    className="w-9 h-9 rounded-full border border-border-light bg-light-card flex items-center justify-center text-text-muted hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-200"
+                    className="w-9 h-9 rounded-full border border-border bg-cardbg-cardflex items-center justify-center text-subtle hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-200"
                   >
                     <i
                       className={iconClass}
@@ -235,18 +235,18 @@ export default function ContactMessage() {
           {/* RIGHT — form */}
           <form
             onSubmit={handleSubmit}
-            className="bg-light-card border border-border-light rounded-2xl p-8"
+            className="bg-cardbg-cardborder border-border rounded-2xl p-8"
           >
-            <h2 className="font-serif text-xl font-medium text-text-dark mb-1">
+            <h2 className="font-serif text-xl font-medium text-foreground mb-1">
               Send us a message
             </h2>
-            <p className="text-xs text-text-muted mb-6">
+            <p className="text-xs text-subtle mb-6">
               A consultant will respond within 2 business hours.
             </p>
 
             {/* Full name */}
             <div className="mb-4">
-              <label className="block text-xs font-medium text-text-body uppercase tracking-widest mb-1.5">
+              <label className="block text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1.5">
                 Full name <span className="text-primary">*</span>
               </label>
               <input
@@ -255,10 +255,10 @@ export default function ContactMessage() {
                 value={formData.fullName}
                 onChange={handleChange}
                 placeholder="Your full name"
-                className={`w-full bg-light-alt border rounded-lg px-4 py-2.5 text-sm text-text-dark placeholder:text-text-muted focus:outline-none transition-colors ${
+                className={`w-full bg-surface border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-subtle focus:outline-none transition-colors ${
                   errors.fullName
                     ? 'border-red-400'
-                    : 'border-border-light focus:border-primary'
+                    : 'border-border focus:border-primary'
                 }`}
               />
               {errors.fullName && (
@@ -268,8 +268,8 @@ export default function ContactMessage() {
 
             {/* Company */}
             <div className="mb-4">
-              <label className="block text-xs font-medium text-text-body uppercase tracking-widest mb-1.5">
-                Company name <span className="text-text-muted">(optional)</span>
+              <label className="block text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1.5">
+                Company name <span className="text-subtle">(optional)</span>
               </label>
               <input
                 type="text"
@@ -277,14 +277,14 @@ export default function ContactMessage() {
                 value={formData.company}
                 onChange={handleChange}
                 placeholder="Your organisation"
-                className="w-full bg-light-alt border border-border-light rounded-lg px-4 py-2.5 text-sm text-text-dark placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors"
+                className="w-full bg-surface border border-border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-subtle focus:outline-none focus:border-primary transition-colors"
               />
             </div>
 
             {/* Email + Phone */}
             <div className="grid grid-cols-2 gap-3 mb-4">
               <div>
-                <label className="block text-xs font-medium text-text-body uppercase tracking-widest mb-1.5">
+                <label className="block text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1.5">
                   Email <span className="text-primary">*</span>
                 </label>
                 <input
@@ -293,10 +293,10 @@ export default function ContactMessage() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="your@email.com"
-                  className={`w-full bg-light-alt border rounded-lg px-4 py-2.5 text-sm text-text-dark placeholder:text-text-muted focus:outline-none transition-colors ${
+                  className={`w-full bg-surface border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-subtle focus:outline-none transition-colors ${
                     errors.email
                       ? 'border-red-400'
-                      : 'border-border-light focus:border-primary'
+                      : 'border-border focus:border-primary'
                   }`}
                 />
                 {errors.email && (
@@ -304,7 +304,7 @@ export default function ContactMessage() {
                 )}
               </div>
               <div>
-                <label className="block text-xs font-medium text-text-body uppercase tracking-widest mb-1.5">
+                <label className="block text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1.5">
                   Phone <span className="text-primary">*</span>
                 </label>
                 <input
@@ -313,10 +313,10 @@ export default function ContactMessage() {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+234"
-                  className={`w-full bg-light-alt border rounded-lg px-4 py-2.5 text-sm text-text-dark placeholder:text-text-muted focus:outline-none transition-colors ${
+                  className={`w-full bg-surface border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-subtle focus:outline-none transition-colors ${
                     errors.phone
                       ? 'border-red-400'
-                      : 'border-border-light focus:border-primary'
+                      : 'border-border focus:border-primary'
                   }`}
                 />
                 {errors.phone && (
@@ -327,17 +327,17 @@ export default function ContactMessage() {
 
             {/* Subject */}
             <div className="mb-4">
-              <label className="block text-xs font-medium text-text-body uppercase tracking-widest mb-1.5">
+              <label className="block text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1.5">
                 Subject <span className="text-primary">*</span>
               </label>
               <select
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className={`w-full bg-light-alt border rounded-lg px-4 py-2.5 text-sm text-text-dark focus:outline-none transition-colors ${
+                className={`w-full bg-surface border rounded-lg px-4 py-2.5 text-sm text-foreground focus:outline-none transition-colors ${
                   errors.subject
                     ? 'border-red-400'
-                    : 'border-border-light focus:border-primary'
+                    : 'border-border focus:border-primary'
                 }`}
               >
                 <option value="">Select a subject</option>
@@ -354,7 +354,7 @@ export default function ContactMessage() {
 
             {/* Message */}
             <div className="mb-6">
-              <label className="block text-xs font-medium text-text-body uppercase tracking-widest mb-1.5">
+              <label className="block text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1.5">
                 Message <span className="text-primary">*</span>
               </label>
               <textarea
@@ -363,10 +363,10 @@ export default function ContactMessage() {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Tell us how we can help you..."
-                className={`w-full bg-light-alt border rounded-lg px-4 py-2.5 text-sm text-text-dark placeholder:text-text-muted focus:outline-none transition-colors resize-none ${
+                className={`w-full bg-surface border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-subtle focus:outline-none transition-colors resize-none ${
                   errors.message
                     ? 'border-red-400'
-                    : 'border-border-light focus:border-primary'
+                    : 'border-border focus:border-primary'
                 }`}
               />
               {errors.message && (
