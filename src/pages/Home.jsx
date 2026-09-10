@@ -1,4 +1,4 @@
-import HomeHero from '../components/section/HomeHero';
+import HomeHero from '../components/section/OldHomeHero';
 import HomeStats from '../components/section/HomeStats';
 import HomeLogoStrip from '../components/section/HomeLogoStrip';
 import HomeHowItWorks from '../components/section/HomeHowItWorks';
