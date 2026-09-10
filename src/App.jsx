@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from 'react-router';
-import Navbar from './components/layout/Navbar';
+import Navbar from './components/layout/NavbarOld';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Industries from './pages/Industries';
