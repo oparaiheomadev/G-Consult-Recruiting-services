@@ -1,6 +1,8 @@
 import { Link } from 'react-router';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { motion } from 'motion/react';
+import { fadeUp } from '@/lib/motion';
 
 const rotatingWords = [
   'move markets.',
@@ -22,12 +24,15 @@ export default function HomeHero() {
   return (
     <section className="dark bg-background min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24">
       {/* Badge */}
-      <div className="flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-10">
+      <motion.div
+        {...fadeUp}
+        className="flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-10"
+      >
         <span className="w-1.5 h-1.5 rounded-full bg-primary" />
         <span className="text-primary text-xs">
           Trusted by 180+ organisations across Nigeria
         </span>
-      </div>
+      </motion.div>
 
       {/* Headline */}
       <h1 className="text-foreground  font-medium text-4xl md:text-6xl tracking-tight leading-[1.15] max-w-3xl mb-8">
