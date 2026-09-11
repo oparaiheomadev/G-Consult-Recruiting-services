@@ -5,6 +5,7 @@ import HomeHowItWorks from '../components/section/HomeHowItWorks';
 import HomeWhatWeDo from '../components/section/HomeWhatWeDo';
 import HomeTestimonials from '../components/section/HomeTestimonials';
 import CTABanner from '../components/section/CTABanner';
+import HomeIndustries from '../components/section/HomeIndustries';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <HomeHero />
       <HomeDoors />
       <HomeServices />
+      <HomeIndustries />
       <HomeHowItWorks />
       <HomeWhatWeDo />
       <HomeTestimonials />
