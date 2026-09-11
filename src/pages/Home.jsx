@@ -3,9 +3,11 @@ import HomeDoors from '@/components/section/HomeDoors';
 import HomeServices from '../components/section/HomeServices';
 import HomeHowItWorks from '../components/section/HomeHowItWorks';
 import HomeWhatWeDo from '../components/section/HomeWhatWeDo';
-import HomeTestimonials from '../components/section/HomeTestimonials';
 import CTABanner from '../components/section/CTABanner';
 import HomeIndustries from '../components/section/HomeIndustries';
+import HomeProcess from '../components/section/HomeProcess';
+import HomeAbout from '../components/section/HomeAbout';
+import HomeTestimonials from '../components/section/HomeTestimonials';
 
 export default function Home() {
   return (
@@ -14,6 +16,9 @@ export default function Home() {
       <HomeDoors />
       <HomeServices />
       <HomeIndustries />
+      <HomeProcess />
+      <HomeAbout />
+      <HomeTestimonials />
       <HomeHowItWorks />
       <HomeWhatWeDo />
       <HomeTestimonials />
