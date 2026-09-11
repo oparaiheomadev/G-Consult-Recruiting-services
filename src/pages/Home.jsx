@@ -8,6 +8,8 @@ import HomeIndustries from '../components/section/HomeIndustries';
 import HomeProcess from '../components/section/HomeProcess';
 import HomeAbout from '../components/section/HomeAbout';
 import HomeTestimonials from '../components/section/HomeTestimonials';
+import HomeFaq from '@/components/section/HomeFAQ';
+import HomeCta from '@/components/section/HomeCTA';
 
 export default function Home() {
   return (
@@ -19,9 +21,11 @@ export default function Home() {
       <HomeProcess />
       <HomeAbout />
       <HomeTestimonials />
+      <HomeFaq />
+      <HomeCta />
       <HomeHowItWorks />
       <HomeWhatWeDo />
-      <HomeTestimonials />
+
       <CTABanner buttonClassName="bg-transparent text-foreground border border-white rounded-lg" />
     </main>
   );

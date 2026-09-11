@@ -13,6 +13,7 @@ const testimonials = [
     logo: nackLogo,
     initials: 'NA',
   },
+
   {
     quote:
       'We had tried three other agencies before Gconsult. None of them came close. Within two weeks our Head of Engineering was in place.',
@@ -32,7 +33,7 @@ const testimonials = [
     initials: 'GH',
   },
 ];
-
+const clients = ['Nack Apparel', 'Specsmart', 'GiselleHomes', 'Goldrich Spicy'];
 const ease = [0.22, 1, 0.36, 1];
 
 function CompanyMark({ item }) {
@@ -83,7 +84,7 @@ export default function HomeTestimonials() {
       aria-labelledby="testimonials-heading"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-      className="dark relative isolate overflow-hidden bg-background py-24 md:py-28"
+      className="dark relative isolate overflow-hidden bg-background py-16 md:py-20"
     >
       <span
         aria-hidden="true"
@@ -103,7 +104,7 @@ export default function HomeTestimonials() {
           What our clients say
         </h2>
 
-        <div className="min-h-[15rem] md:min-h-[13rem]">
+        <div className="min-h-[11rem] md:min-h-[9rem]">
           <AnimatePresence mode="wait" initial={false}>
             <motion.figure
               key={index}
@@ -116,7 +117,7 @@ export default function HomeTestimonials() {
                 {item.quote}
               </blockquote>
 
-              <figcaption className="mt-9 flex items-center gap-4">
+              <figcaption className="mt-7 flex items-center gap-4">
                 <CompanyMark item={item} />
                 <span>
                   <span className="block text-sm text-foreground">
@@ -131,7 +132,7 @@ export default function HomeTestimonials() {
           </AnimatePresence>
         </div>
 
-        <div className="mt-12 flex items-center justify-between">
+        <div className="mt-8 flex items-center justify-between">
           <div className="flex items-center">
             {testimonials.map((t, i) => (
               <button
@@ -170,6 +171,18 @@ export default function HomeTestimonials() {
               <ChevronRight className="size-4" aria-hidden="true" />
             </button>
           </div>
+        </div>
+        {/* Client names */}
+        <div className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-border pt-8">
+          <span className="text-xs text-muted-foreground">Trusted by</span>
+          {clients.map((client) => (
+            <span
+              key={client}
+              className="font-serif text-base text-muted-foreground"
+            >
+              {client}
+            </span>
+          ))}
         </div>
       </div>
     </section>

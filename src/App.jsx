@@ -5,10 +5,10 @@ import Contact from './pages/Contact';
 import Industries from './pages/Industries';
 import Service from './pages/Service';
 import AboutUs from './pages/AboutUs';
-import Footer from './components/layout/Footer';
 import ProtectedRoute from './components/layout/ProtectedRoute';
 import AdminLogin from './admin/AdminLogin';
 import AdminDashboard from './admin/AdminDashboard';
+import Footer from './components/layout/Footer';
 
 import Preloader from './components/layout/Perloader';
 
