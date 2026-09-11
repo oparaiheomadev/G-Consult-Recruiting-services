@@ -1,6 +1,6 @@
 import HomeHero from '../components/section/HomeHero';
-import HomeStats from '../components/section/HomeStats';
-import HomeLogoStrip from '../components/section/HomeLogoStrip';
+import HomeDoors from '@/components/section/HomeDoors';
+import HomeServices from '../components/section/HomeServices';
 import HomeHowItWorks from '../components/section/HomeHowItWorks';
 import HomeWhatWeDo from '../components/section/HomeWhatWeDo';
 import HomeTestimonials from '../components/section/HomeTestimonials';
@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <main>
       <HomeHero />
-      <HomeLogoStrip />
-      <HomeStats />
+      <HomeDoors />
+      <HomeServices />
       <HomeHowItWorks />
       <HomeWhatWeDo />
       <HomeTestimonials />
