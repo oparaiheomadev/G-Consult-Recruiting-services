@@ -1,399 +1,408 @@
 import { useState } from 'react';
+import { useMutation } from '@tanstack/react-query';
+import { Check, Loader2, Mail, MapPin, Phone } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { cn } from '@/lib/utils';
+
+const empty = {
+  fullName: '',
+  company: '',
+  email: '',
+  phone: '',
+  subject: '',
+  message: '',
+};
+
+const subjects = [
+  'I want to hire talent',
+  "I'm looking for a job",
+  'Executive search enquiry',
+  'HR consulting',
+  'Payroll',
+  'General enquiry',
+];
+
+const details = [
+  {
+    icon: Mail,
+    title: 'Email us',
+    note: 'We reply within two working hours.',
+    value: 'gconsultrecruitments@gmail.com',
+    href: 'mailto:gconsultrecruitments@gmail.com',
+  },
+  {
+    icon: MapPin,
+    title: 'Office',
+    note: 'By appointment, so call ahead.',
+    value: 'Lagos, Nigeria',
+    href: null,
+  },
+  {
+    icon: Phone,
+    title: 'Call us',
+    note: 'Monday to Friday, 8am to 6pm.',
+    value: '+234 810 686 3792',
+    href: 'tel:+2348106863792',
+  },
+];
+
+const socials = [
+  {
+    label: 'Instagram',
+    href: 'https://instagram.com/gconsult',
+    path: 'M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.89 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16Zm0 4.86a4.98 4.98 0 1 0 0 9.96 4.98 4.98 0 0 0 0-9.96Zm0 8.21a3.23 3.23 0 1 1 0-6.46 3.23 3.23 0 0 1 0 6.46Zm5.17-8.4a1.16 1.16 0 1 0 0-2.33 1.16 1.16 0 0 0 0 2.33Z',
+  },
+  {
+    label: 'Facebook',
+    href: 'https://facebook.com/gconsult',
+    path: 'M13.5 22v-8.4h2.83l.42-3.28H13.5V8.22c0-.95.26-1.6 1.63-1.6h1.74V3.69A23.5 23.5 0 0 0 14.33 3.5c-2.5 0-4.22 1.53-4.22 4.35v2.47H7.28v3.28h2.83V22h3.39Z',
+  },
+];
 
 export default function ContactMessage() {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    company: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-  });
-
+  const [form, setForm] = useState(empty);
   const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
 
-  // handle input change
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    // clear error on change
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }));
-    }
-  }
-
-  // validate form
-  function validate() {
-    const newErrors = {};
-    if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Enter a valid email address';
-    }
-    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
-    if (!formData.subject) newErrors.subject = 'Please select a subject';
-    if (!formData.message.trim()) newErrors.message = 'Message is required';
-    return newErrors;
-  }
-
-  // handle submit
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const newErrors = validate();
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
-
-    setLoading(true);
-    try {
-      await emailjs.send(
+  const mutation = useMutation({
+    mutationFn: (data) =>
+      emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
-          from_name: formData.fullName,
-          from_email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
-          subject: formData.subject,
-          message: formData.message,
+          from_name: data.fullName,
+          from_email: data.email,
+          phone: data.phone,
+          company: data.company,
+          subject: data.subject,
+          message: data.message,
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      );
-      setSuccess(true);
-      setFormData({
-        fullName: '',
-        company: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-      });
-      // hide success popup after 4 seconds
-      setTimeout(() => setSuccess(false), 4000);
-    } catch (error) {
-      console.error('EmailJS error:', error);
-      alert('Something went wrong. Please try again.');
-    } finally {
-      setLoading(false);
-    }
+      ),
+    onSuccess: () => setForm(empty),
+  });
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: '' }));
   }
 
+  function validate() {
+    const next = {};
+
+    const name = form.fullName.trim();
+    if (!name) next.fullName = 'Full name is required';
+    else if (name.length < 2) next.fullName = 'That name looks too short';
+    else if (!/^[\p{L}\s'-]+$/u.test(name)) next.fullName = 'Use letters only';
+
+    const email = form.email.trim();
+    if (!email) next.email = 'Email is required';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))
+      next.email = 'Enter a valid email address';
+
+    const phone = form.phone.trim();
+    if (!phone) next.phone = 'Phone number is required';
+    else if (!/^[\d\s+()-]{7,20}$/.test(phone))
+      next.phone = 'Enter a valid phone number';
+
+    if (!form.subject) next.subject = 'Please select a subject';
+
+    const message = form.message.trim();
+    if (!message) next.message = 'Message is required';
+    else if (message.length < 10) next.message = 'Tell us a little more';
+
+    return next;
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const found = validate();
+    if (Object.keys(found).length) {
+      setErrors(found);
+      return;
+    }
+    mutation.mutate(form);
+  }
+
+  const fieldClass = (name) =>
+    cn(
+      'mt-2 border-border bg-surface',
+      errors[name] && 'border-destructive focus-visible:border-destructive',
+    );
+
   return (
-    <main className="bg-background min-h-screen pt-24 pb-20 px-6">
-      {/* Success popup */}
-      {success && (
-        <div className="fixed top-6 right-6 z-50 bg-background border border-primary/30 rounded-xl px-6 py-4 shadow-lg animate-fade-in flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
-            <i
-              className="ti ti-check text-primary"
-              style={{ fontSize: '16px' }}
+    <main className="bg-surface pt-32 pb-24 md:pt-40">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="grid overflow-hidden rounded-3xl border border-border md:grid-cols-[0.85fr_1.15fr]">
+          {/* LEFT — brand panel */}
+          <div className="relative isolate overflow-hidden bg-primary p-9 md:p-10">
+            <span
               aria-hidden="true"
-            ></i>
-          </div>
-          <div>
-            <p className="text-sm font-medium text-foreground">Message sent!</p>
-            <p className="text-xs text-muted-foreground mt-0.5">
-              We'll be in touch within 2 business hours.
+              className="pointer-events-none absolute -top-14 -right-10 -z-10 size-40 rotate-[41deg] bg-primary-foreground/10"
+            />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute bottom-24 -left-10 -z-10 size-28 rotate-[47deg] bg-primary-foreground/10"
+            />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute top-1/2 right-10 -z-10 size-6 rotate-[43deg] bg-primary-foreground/20"
+            />
+
+            <h1 className="font-serif text-2xl text-primary-foreground md:text-3xl">
+              Get in touch
+            </h1>
+            <p className="mt-3 max-w-xs text-sm leading-relaxed text-primary-foreground/75">
+              Hiring, looking for a role, or not sure yet. You will reach one of
+              the two consultants who would run your search.
             </p>
-          </div>
-          <button
-            onClick={() => setSuccess(false)}
-            className="ml-4 text-muted-foreground hover:text-foreground"
-          >
-            <i
-              className="ti ti-x"
-              style={{ fontSize: '14px' }}
-              aria-hidden="true"
-            ></i>
-          </button>
-        </div>
-      )}
 
-      <div className="container mx-auto max-w-5xl">
-        {/* Page header */}
-        <div className="mb-12">
-          <p className="text-xs uppercase tracking-widest text-primary mb-3">
-            Get in touch
-          </p>
-          <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground leading-tight">
-            Let's talk
-          </h1>
-          <p className="text-sm text-subtle mt-3 max-w-md leading-relaxed">
-            Whether you're a business, hiring manager, or job seeker — we're
-            here to help.
-          </p>
-        </div>
-
-        {/* Split layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          {/* LEFT — contact info */}
-          <div className="flex flex-col gap-4">
-            <div className="bg-surface border border-border rounded-xl p-5 flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                <i
-                  className="ti ti-map-pin text-primary"
-                  style={{ fontSize: '18px' }}
-                  aria-hidden="true"
-                ></i>
-              </div>
-              <div>
-                <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-1">
-                  Head office address
-                </p>
-                <p className="text-sm text-foreground">Lagos, Nigeria</p>
-              </div>
-            </div>
-
-            <div className="bg-surface border border-border rounded-xl p-5 flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                <i
-                  className="ti ti-mail text-primary"
-                  style={{ fontSize: '18px' }}
-                  aria-hidden="true"
-                ></i>
-              </div>
-              <div>
-                <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-1">
-                  Email address
-                </p>
-                <a href="mailto:gconsultrecruitments@gmail.com">
-                  <p className="text-sm text-foreground">
-                    gconsultrecruitments@gmail.com
-                  </p>
-                </a>
-              </div>
-            </div>
-
-            <div className="bg-surface border border-border rounded-xl p-5 flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                <i
-                  className="ti ti-phone text-primary"
-                  style={{ fontSize: '18px' }}
-                  aria-hidden="true"
-                ></i>
-              </div>
-              <div>
-                <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-1">
-                  Phone number
-                </p>
-                <a href="tel:+2348106863792">
-                  <p className="text-sm text-foreground">+234 8106863792</p>
-                </a>
-                <p className="text-xs text-subtle mt-1">Mon–Fri, 8am–6pm</p>
-              </div>
-            </div>
-
-            <div className="bg-surface border border-border rounded-xl p-5">
-              <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-4">
-                Connect with us
-              </p>
-              <div className="flex items-center gap-3">
-                {[
-                  {
-                    iconClass: 'ti ti-brand-facebook',
-                    label: 'Facebook',
-                    href: 'https://facebook.com/gconsult',
-                  },
-                  {
-                    iconClass: 'ti ti-brand-twitter',
-                    label: 'Twitter',
-                    href: 'https://twitter.com/gconsult',
-                  },
-                  {
-                    iconClass: 'ti ti-brand-instagram',
-                    label: 'Instagram',
-                    href: 'https://instagram.com/gconsult',
-                  },
-                  {
-                    iconClass: 'ti ti-brand-linkedin',
-                    label: 'LinkedIn',
-                    href: 'https://linkedin.com/company/gconsult',
-                  },
-                ].map(({ iconClass, label, href }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    aria-label={label}
-                    className="w-9 h-9 rounded-full border border-border bg-cardbg-cardflex items-center justify-center text-subtle hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-200"
-                  >
-                    <i
-                      className={iconClass}
-                      style={{ fontSize: '15px' }}
+            <dl className="mt-10 space-y-7">
+              {details.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.title} className="flex items-start gap-3.5">
+                    <Icon
+                      className="mt-0.5 size-4 shrink-0 text-primary-foreground/80"
                       aria-hidden="true"
-                    ></i>
-                  </a>
-                ))}
-              </div>
+                    />
+                    <div>
+                      <dt className="text-sm font-medium text-primary-foreground">
+                        {item.title}
+                      </dt>
+                      <dd>
+                        <span className="mt-0.5 block text-xs text-primary-foreground/70">
+                          {item.note}
+                        </span>
+                        {item.href ? (
+                          <a
+                            href={item.href}
+                            className="mt-1.5 block break-all text-sm text-primary-foreground underline-offset-4 hover:underline"
+                          >
+                            {item.value}
+                          </a>
+                        ) : (
+                          <span className="mt-1.5 block text-sm text-primary-foreground">
+                            {item.value}
+                          </span>
+                        )}
+                      </dd>
+                    </div>
+                  </div>
+                );
+              })}
+            </dl>
+
+            <div className="mt-12 flex items-center gap-3">
+              {socials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label={social.label}
+                  className="flex size-9 items-center justify-center rounded-full border border-primary-foreground/25 text-primary-foreground/80 transition-colors duration-300 hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="size-4"
+                    aria-hidden="true"
+                  >
+                    <path d={social.path} />
+                  </svg>
+                </a>
+              ))}
             </div>
           </div>
 
           {/* RIGHT — form */}
-          <form
-            onSubmit={handleSubmit}
-            className="bg-cardbg-cardborder border-border rounded-2xl p-8"
-          >
-            <h2 className="font-serif text-xl font-medium text-foreground mb-1">
-              Send us a message
+          <div className="bg-card p-9 md:p-10">
+            <h2 className="font-serif text-2xl text-card-foreground md:text-3xl">
+              Tell us what you need
             </h2>
-            <p className="text-xs text-subtle mb-6">
-              A consultant will respond within 2 business hours.
+            <p className="mt-2 text-sm text-muted-foreground">
+              Or email us directly at{' '}
+              <a
+                href="mailto:gconsultrecruitments@gmail.com"
+                className="text-primary underline-offset-4 hover:underline"
+              >
+                gconsultrecruitments@gmail.com
+              </a>
             </p>
 
-            {/* Full name */}
-            <div className="mb-4">
-              <label className="block text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1.5">
-                Full name <span className="text-primary">*</span>
-              </label>
-              <input
-                type="text"
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleChange}
-                placeholder="Your full name"
-                className={`w-full bg-surface border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-subtle focus:outline-none transition-colors ${
-                  errors.fullName
-                    ? 'border-red-400'
-                    : 'border-border focus:border-primary'
-                }`}
-              />
-              {errors.fullName && (
-                <p className="text-xs text-red-500 mt-1">{errors.fullName}</p>
-              )}
-            </div>
-
-            {/* Company */}
-            <div className="mb-4">
-              <label className="block text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1.5">
-                Company name <span className="text-subtle">(optional)</span>
-              </label>
-              <input
-                type="text"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                placeholder="Your organisation"
-                className="w-full bg-surface border border-border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-subtle focus:outline-none focus:border-primary transition-colors"
-              />
-            </div>
-
-            {/* Email + Phone */}
-            <div className="grid grid-cols-2 gap-3 mb-4">
+            <form onSubmit={handleSubmit} noValidate className="mt-8 space-y-5">
               <div>
-                <label className="block text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1.5">
-                  Email <span className="text-primary">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
+                <Label htmlFor="fullName" className="text-sm text-foreground">
+                  Name
+                </Label>
+                <Input
+                  id="fullName"
+                  name="fullName"
+                  value={form.fullName}
                   onChange={handleChange}
-                  placeholder="your@email.com"
-                  className={`w-full bg-surface border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-subtle focus:outline-none transition-colors ${
-                    errors.email
-                      ? 'border-red-400'
-                      : 'border-border focus:border-primary'
-                  }`}
+                  placeholder="Your name"
+                  maxLength={80}
+                  className={fieldClass('fullName')}
                 />
-                {errors.email && (
-                  <p className="text-xs text-red-500 mt-1">{errors.email}</p>
+                {errors.fullName && (
+                  <p className="mt-1.5 text-xs text-destructive">
+                    {errors.fullName}
+                  </p>
                 )}
               </div>
+
               <div>
-                <label className="block text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1.5">
-                  Phone <span className="text-primary">*</span>
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
+                <Label htmlFor="company" className="text-sm text-foreground">
+                  Company{' '}
+                  <span className="text-muted-foreground">(optional)</span>
+                </Label>
+                <Input
+                  id="company"
+                  name="company"
+                  value={form.company}
                   onChange={handleChange}
-                  placeholder="+234"
-                  className={`w-full bg-surface border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-subtle focus:outline-none transition-colors ${
-                    errors.phone
-                      ? 'border-red-400'
-                      : 'border-border focus:border-primary'
-                  }`}
+                  placeholder="Your organisation"
+                  maxLength={100}
+                  className={fieldClass('company')}
                 />
-                {errors.phone && (
-                  <p className="text-xs text-red-500 mt-1">{errors.phone}</p>
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <Label htmlFor="email" className="text-sm text-foreground">
+                    Email
+                  </Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="you@company.com"
+                    className={fieldClass('email')}
+                  />
+                  {errors.email && (
+                    <p className="mt-1.5 text-xs text-destructive">
+                      {errors.email}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <Label htmlFor="phone" className="text-sm text-foreground">
+                    Phone number
+                  </Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder="+234 000 000 0000"
+                    maxLength={20}
+                    className={fieldClass('phone')}
+                  />
+                  {errors.phone && (
+                    <p className="mt-1.5 text-xs text-destructive">
+                      {errors.phone}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <Label htmlFor="subject" className="text-sm text-foreground">
+                  What is this about
+                </Label>
+                <select
+                  id="subject"
+                  name="subject"
+                  value={form.subject}
+                  onChange={handleChange}
+                  className={cn(
+                    'h-9 w-full rounded-md border px-3 text-sm text-foreground outline-none',
+                    'focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50',
+                    fieldClass('subject'),
+                  )}
+                >
+                  <option value="">Select one</option>
+                  {subjects.map((subject) => (
+                    <option key={subject} value={subject}>
+                      {subject}
+                    </option>
+                  ))}
+                </select>
+                {errors.subject && (
+                  <p className="mt-1.5 text-xs text-destructive">
+                    {errors.subject}
+                  </p>
                 )}
               </div>
-            </div>
 
-            {/* Subject */}
-            <div className="mb-4">
-              <label className="block text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1.5">
-                Subject <span className="text-primary">*</span>
-              </label>
-              <select
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                className={`w-full bg-surface border rounded-lg px-4 py-2.5 text-sm text-foreground focus:outline-none transition-colors ${
-                  errors.subject
-                    ? 'border-red-400'
-                    : 'border-border focus:border-primary'
-                }`}
+              <div>
+                <Label htmlFor="message" className="text-sm text-foreground">
+                  How can we help?
+                </Label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  value={form.message}
+                  onChange={handleChange}
+                  placeholder="Tell us a little about the role..."
+                  maxLength={2000}
+                  className={cn(
+                    'w-full resize-none rounded-md border px-3 py-2.5 text-sm text-foreground outline-none placeholder:text-muted-foreground',
+                    'focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50',
+                    fieldClass('message'),
+                  )}
+                />
+                {errors.message && (
+                  <p className="mt-1.5 text-xs text-destructive">
+                    {errors.message}
+                  </p>
+                )}
+              </div>
+
+              <Button
+                type="submit"
+                size="lg"
+                disabled={mutation.isPending}
+                className="w-full rounded-full"
               >
-                <option value="">Select a subject</option>
-                <option>I want to hire talent</option>
-                <option>I'm looking for a job</option>
-                <option>Executive search enquiry</option>
-                <option>HR consulting</option>
-                <option>General enquiry</option>
-              </select>
-              {errors.subject && (
-                <p className="text-xs text-red-500 mt-1">{errors.subject}</p>
-              )}
-            </div>
+                {mutation.isPending ? (
+                  <>
+                    <Loader2
+                      className="size-4 animate-spin"
+                      aria-hidden="true"
+                    />
+                    Sending
+                  </>
+                ) : (
+                  'Send message'
+                )}
+              </Button>
 
-            {/* Message */}
-            <div className="mb-6">
-              <label className="block text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1.5">
-                Message <span className="text-primary">*</span>
-              </label>
-              <textarea
-                rows={4}
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Tell us how we can help you..."
-                className={`w-full bg-surface border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-subtle focus:outline-none transition-colors resize-none ${
-                  errors.message
-                    ? 'border-red-400'
-                    : 'border-border focus:border-primary'
-                }`}
-              />
-              {errors.message && (
-                <p className="text-xs text-red-500 mt-1">{errors.message}</p>
-              )}
-            </div>
-
-            {/* Submit */}
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-primary text-primary-foreground text-sm font-semibold py-3 rounded-lg hover:bg-background hover:text-foreground transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-            >
-              {loading ? (
-                <>
-                  <i
-                    className="ti ti-loader animate-spin"
-                    style={{ fontSize: '15px' }}
-                    aria-hidden="true"
-                  ></i>
-                  Sending...
-                </>
-              ) : (
-                'Send message'
-              )}
-            </button>
-          </form>
+              <div aria-live="polite" className="min-h-6">
+                {mutation.isSuccess && (
+                  <p className="flex items-center gap-2 text-sm text-primary">
+                    <Check className="size-4" aria-hidden="true" />
+                    Message sent. We will reply within two working hours.
+                  </p>
+                )}
+                {mutation.isError && (
+                  <p className="text-sm text-destructive">
+                    Something went wrong. Please try again, or email us
+                    directly.
+                  </p>
+                )}
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </main>

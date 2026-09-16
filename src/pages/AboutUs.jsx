@@ -1,30 +1,26 @@
-import HeroBanner from '../components/section/HeroBanner';
+import PageHero from '../components/shared/PageHero';
 import service from '../assets/service.jpg';
 import Aboutus from '../assets/aboutus.jpg';
-import CTABanner from '../components/section/CTABanner';
-import About from '../components/section/About';
-import AboutSector from '../components/section/AboutSector';
-import AboutCommitments from '../components/section/AboutCommitments';
+import CtaBanner from '../components/shared/CtaBanner';
+import AboutStory from '../components/section/Aboutstory';
+import AboutPractices from '@/components/section/AboutPractices';
+import AboutTeams from '@/components/section/AboutTeams';
+import AboutClients from '@/components/section/AboutClients';
 export default function AboutUs() {
   return (
     <main>
-      <HeroBanner
-        badge="Our Story"
-        image={Aboutus}
-        title="We built G-Consult because "
-        highlight="great hiring shouldn't be this hard"
-        description="Founded in Lagos in 2018, we've grown into Nigeria's most trusted recruitment partner — placing over 1,200 professionals across every sector."
-        OverlayClassName="bg-background/65"
+      <PageHero
+        badge="About Gconsult"
+        title="A small firm, on purpose."
+        intro="We are a Lagos recruitment practice built around senior attention rather than volume. Every search is run by the person who took the brief."
       />
-      <About />
-      <AboutSector />
-      <AboutCommitments />
-      <CTABanner
-        title="Want to work with a team that cares?"
-        description="Let's talk about your next hire or your next career move."
-        buttonText="Get in touch"
-        buttonLink="/contact"
-        buttonClassName="bg-transparent text-foreground border border-white rounded-lg"
+      <AboutStory />
+      <AboutPractices />
+      <AboutTeams />
+      <AboutClients />
+      <CtaBanner
+        title="Want to talk to someone who will actually run the search?"
+        body="Tell us about the role. We will tell you honestly whether we are the right fit for it."
       />
     </main>
   );

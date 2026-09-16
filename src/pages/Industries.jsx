@@ -1,25 +1,21 @@
-import HeroBanner from '../components/section/HeroBanner';
-import Industries2 from '../assets/industries2.jpg';
-import IndustryTypes from '../components/section/IndustryTypes';
-import CTABanner from '../components/section/CTABanner';
+import PageHero from '@/components/shared/PageHero';
+import CtaBanner from '@/components/shared/CtaBanner';
+import IndustrySectors from '@/components/section/IndustrySectors';
 
 export default function Industries() {
   return (
     <main>
-      <HeroBanner
-        image={Industries2}
-        badge="Sector expertise"
-        title="Deep knowledge of the industries"
-        highlight="where talent matters most."
-        description="Our consultants specialise  so they know what good actually looks like in your sector."
+      <PageHero
+        badge="Where we work"
+        title="Five sectors we know from the inside."
+        intro="We only list industries where we have actually placed people. These are the roles we have filled and what hiring in each one really involves."
       />
-      <IndustryTypes />
-      <CTABanner
-        title="Dont See Your sector?"
-        description="We've placed talent in 12+ industries. Let's talk"
-        buttonText="Talk to a specilaist"
-        buttonLink="/contact"
-        buttonClassName="bg-transparent text-foreground border border-white rounded-lg"
+      <IndustrySectors />
+      <CtaBanner
+        title="Hiring in a sector not listed here?"
+        body="The process is the same. Tell us the role and we will be honest about whether we are the right firm for it."
+        primaryLabel="Talk it through"
+        secondaryLabel={null}
       />
     </main>
   );
