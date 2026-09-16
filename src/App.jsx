@@ -9,6 +9,7 @@ import ProtectedRoute from './components/layout/ProtectedRoute';
 import AdminLogin from './admin/AdminLogin';
 import AdminDashboard from './admin/AdminDashboard';
 import Footer from './components/layout/Footer';
+import NotFound from '@/pages/NotFound';
 
 import Preloader from './components/layout/Perloader';
 
@@ -35,6 +36,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       {!isAdminRoute && <Footer />}
     </div>
