@@ -10,6 +10,7 @@ import AdminLogin from './admin/AdminLogin';
 import AdminDashboard from './admin/AdminDashboard';
 import Footer from './components/layout/Footer';
 import NotFound from '@/pages/NotFound';
+import ScrollToTop from './components/layout/ScrollToTop';
 
 import Preloader from './components/layout/Perloader';
 
@@ -20,6 +21,7 @@ function App() {
   return (
     <div>
       {/* <Preloader /> */}
+      <ScrollToTop />
       {!isAdminRoute && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
