@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 
 export default function NotFound() {
   return (
-    <main className="dark relative isolate flex min-h-screen items-center overflow-hidden bg-background px-6">
+    <main className="dark relative isolate flex min-h-screen items-center overflow-hidden bg-background/90 px-6">
       <span
         aria-hidden="true"
         className="pointer-events-none absolute -top-24 -right-20 -z-10 size-72 rotate-[41deg] bg-secondary/40"

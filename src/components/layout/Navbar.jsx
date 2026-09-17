@@ -22,7 +22,8 @@ export default function Navbar() {
   const { pathname } = useLocation();
 
   // Only the homepage has a dark hero to sit over.
-  const overHero = pathname === '/' && !scrolled;
+  const darkPages = ['/', '/about', '/services', '/industries'];
+  const overHero = darkPages.includes(pathname) && !scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -88,15 +89,10 @@ export default function Navbar() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden"
                 aria-label="Open menu"
-                size-11
-                className={cn(
-                  'md:hidden',
-                  overHero ? 'text-foreground' : 'text-foreground',
-                )}
+                className="md:hidden size-11 text-foreground"
               >
-                <Menu className="size-5" />
+                <Menu className="size-6" />
               </Button>
             </SheetTrigger>
             <SheetContent
