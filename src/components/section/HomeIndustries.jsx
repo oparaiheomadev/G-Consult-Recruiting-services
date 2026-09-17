@@ -1,10 +1,10 @@
 import { Link } from 'react-router';
 import { ArrowUpRight } from 'lucide-react';
-import nairalImg from '@/assets/naira.jpg';
-import technologyImg from '@/assets/technology.jpg';
-import healthcareImg from '@/assets/healthcare.jpg';
-import retailImg from '@/assets/retail.jpg';
-import ngoImg from '@/assets/ngo.jpg';
+import nairalImg from '@/assets/naira.webp';
+import technologyImg from '@/assets/technology.webp';
+import healthcareImg from '@/assets/healthcare.webp';
+import retailImg from '@/assets/retail.webp';
+import role from '@/assets/role.webp';
 
 const industries = [
   {
@@ -16,7 +16,7 @@ const industries = [
   { name: 'Technology', image: technologyImg, tall: true },
   { name: 'Healthcare', image: healthcareImg },
   { name: 'FMCG and retail', image: retailImg },
-  { name: 'Public sector and NGOs', image: ngoImg },
+  { name: 'Public sector and NGOs', image: role },
 ];
 
 export default function HomeIndustries() {

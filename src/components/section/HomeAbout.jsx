@@ -1,4 +1,4 @@
-import teamImg from '@/assets/team.jpg';
+import teamImg from '@/assets/team.webp';
 
 const commitments = [
   {

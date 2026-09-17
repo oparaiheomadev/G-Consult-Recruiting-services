@@ -1,6 +1,6 @@
 import PageHero from '../components/shared/PageHero';
-import service from '../assets/service.jpg';
-import Aboutus from '../assets/aboutus.jpg';
+
+import Aboutus from '../assets/aboutus.webp';
 import CtaBanner from '../components/shared/CtaBanner';
 import AboutStory from '../components/section/Aboutstory';
 import AboutPractices from '@/components/section/AboutPractices';

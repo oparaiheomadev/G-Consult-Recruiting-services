@@ -2,7 +2,7 @@ import PageHero from '@/components/shared/PageHero';
 import CtaBanner from '@/components/shared/CtaBanner';
 import ServiceNav from '@/components/section/ServiceNav';
 import ServiceBlock from '@/components/section/ServiceBlock';
-import executiveImg from '@/assets/Executive.jpg';
+import executiveImg from '@/assets/Executive.webp';
 
 export default function Service() {
   return (

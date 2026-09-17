@@ -9,9 +9,9 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import consultingImg from '@/assets/consulting.jpg';
-import executiveImg from '@/assets/Executive.jpg';
-import recruitmentImg from '@/assets/recruitment.jpg';
+import consultingImg from '@/assets/consulting.webp';
+import executiveImg from '@/assets/Executive.webp';
+import recruitmentImg from '@/assets/recruitment.webp';
 
 const services = [
   {

@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import { ArrowUpRight } from 'lucide-react';
-import hiringImg from '@/assets/Hiring.jpg';
-import roleImg from '@/assets/Role.jpg';
+import hiringImg from '@/assets/Hiring.webp';
+import roleImg from '@/assets/Role.webp';
 
 const doors = [
   {

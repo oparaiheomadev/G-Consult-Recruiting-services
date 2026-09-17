@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { fadeUp, fadeUpDelayed } from '@/lib/motion';
-import storyImg from '@/assets/AboutUs.jpg';
+import storyImg from '@/assets/AboutUs.webp';
 
 export default function AboutStory() {
   return (

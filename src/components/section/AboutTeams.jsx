@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { fadeUpDelayed } from '@/lib/motion';
-import personOneImg from '@/assets/team.jpg';
+import personOneImg from '@/assets/team.webp';
 
 const people = [
   {

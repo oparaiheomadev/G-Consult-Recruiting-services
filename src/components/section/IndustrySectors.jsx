@@ -3,11 +3,11 @@ import { motion } from 'motion/react';
 import { fadeUp } from '@/lib/motion';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
-import fashionImg from '@/assets/fashionImg.jpg';
-import propertyImg from '@/assets/propertyImg.jpg';
-import fmcgImg from '@/assets/fmcgImg.jpg';
-import healthImg from '@/assets/healthImg.jpg';
-import techImg from '@/assets/techImg.jpg';
+import fashionImg from '@/assets/fashionImg.webp';
+import propertyImg from '@/assets/propertyImg.webp';
+import fmcgImg from '@/assets/fmcgImg.webp';
+import healthImg from '@/assets/healthImg.webp';
+import techImg from '@/assets/techImg.webp';
 
 const sectors = [
   {
