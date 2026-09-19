@@ -1,9 +1,16 @@
+import Seo from '@/components/layout/Seo';
+
 import { Link } from 'react-router';
 import { Button } from '@/components/ui/button';
 
 export default function NotFound() {
   return (
     <main className="dark relative isolate flex min-h-screen items-center overflow-hidden bg-background/90 px-6">
+      <Seo
+        title="Page Not Found | Gconsult"
+        description="This page does not exist."
+        path=""
+      />
       <span
         aria-hidden="true"
         className="pointer-events-none absolute -top-24 -right-20 -z-10 size-72 rotate-[41deg] bg-secondary/40"

@@ -1,3 +1,4 @@
+import Seo from '@/components/layout/Seo';
 import PageHero from '@/components/shared/PageHero';
 import CtaBanner from '@/components/shared/CtaBanner';
 import IndustrySectors from '@/components/section/IndustrySectors';
@@ -5,6 +6,11 @@ import IndustrySectors from '@/components/section/IndustrySectors';
 export default function Industries() {
   return (
     <main>
+      <Seo
+        title="Industries We Recruit In | Fashion, Property, FMCG, Health, Tech and others"
+        description="Five sectors we have actually placed people in, the roles we filled, and what hiring in each one really involves."
+        path="/industries"
+      />
       <PageHero
         badge="Where we work"
         title="Five sectors we know from the inside."

@@ -1,3 +1,4 @@
+import Seo from '@/components/layout/Seo';
 import PageHero from '@/components/shared/PageHero';
 import CtaBanner from '@/components/shared/CtaBanner';
 import ServiceNav from '@/components/section/ServiceNav';
@@ -7,6 +8,11 @@ import executiveImg from '@/assets/Executive.webp';
 export default function Service() {
   return (
     <main>
+      <Seo
+        title="Recruitment Services | Executive Search, Payroll and HR Consulting"
+        description="Executive search, core recruitment, HR consulting and payroll for organisations across Nigeria. Timelines, fees and what each service involves."
+        path="/services"
+      />
       <PageHero
         badge="What we do"
         title="Three ways we help you hire."

@@ -1,3 +1,4 @@
+import Seo from '@/components/layout/Seo';
 import PageHero from '../components/shared/PageHero';
 
 import Aboutus from '../assets/aboutus.webp';
@@ -9,6 +10,11 @@ import AboutClients from '@/components/section/AboutClients';
 export default function AboutUs() {
   return (
     <main>
+      <Seo
+        title="About Gconsult | One Of The Fastest Growing Recruitment Firm in Lagos"
+        description="A Lagos recruitment practice built around senior attention rather than volume. Every search is run by the consultant who took the brief."
+        path="/about"
+      />
       <PageHero
         badge="About Gconsult"
         title="A small firm, on purpose."
