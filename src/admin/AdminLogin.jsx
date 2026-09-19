@@ -1,41 +1,28 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { supabase } from '../lib/supabase';
+import { supabase } from '@/lib/supabase';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import logoLight from '@/assets/gconsult-light.png';
 
 export default function AdminLogin() {
-  const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
     setError('');
-    setSuccess('');
-
-    if (isSignUp) {
-      const { error } = await supabase.auth.signUp({ email, password });
-      if (error) {
-        setError(error.message);
-        setLoading(false);
-        return;
-      }
-      setSuccess('Account created successfully! Please sign in.');
-      setIsSignUp(false);
-      setEmail('');
-      setPassword('');
-      setLoading(false);
-      return;
-    }
 
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
+
     if (error) {
       setError(error.message);
       setLoading(false);
@@ -43,92 +30,109 @@ export default function AdminLogin() {
     }
 
     navigate('/admin/dashboard');
-  };
+  }
 
   return (
-    <main className="bg-background min-h-screen flex items-center justify-center px-6">
-      <div className="bg-card border border-border rounded-2xl p-10 w-full max-w-md">
-        {/* Logo */}
-        <div className="text-center mb-8">
-          <h1 className="text-xl font-bold tracking-tight">
-            <span className="font-serif italic text-foreground">G -</span>
-            <span className="text-primary">Consult</span>
+    <main className="relative isolate flex min-h-screen items-center justify-center overflow-hidden bg-surface px-6 py-16">
+      {/* Diamond field */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-28 -left-24 -z-10 size-72 rotate-[41deg] bg-accent"
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-32 -right-20 -z-10 size-80 rotate-[47deg] bg-accent"
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute top-24 right-1/4 -z-10 size-16 rotate-[43deg] bg-primary/10"
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-32 left-1/4 -z-10 size-10 rotate-[44deg] bg-primary/15"
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute top-1/2 left-16 -z-10 size-5 rotate-[42deg] bg-primary/20"
+      />
+
+      <div className="w-full max-w-sm">
+        <img
+          src={logoLight}
+          alt="Gconsult Professional Services"
+          className="mx-auto mb-8 h-9 w-auto shrink-0"
+        />
+
+        <div className="rounded-2xl border border-border bg-secondary p-9 shadow-sm">
+          <h1 className="text-center font-serif text-xl text-foreground">
+            Admin sign in
           </h1>
-          <p className="text-sm text-muted-foreground mt-2">
-            {isSignUp ? 'Create admin account' : 'Admin portal'}
+          <p className="mt-1.5 text-center text-sm text-muted-foreground">
+            Manage job listings and postings.
           </p>
+
+          {/* Three brand diamonds as a divider */}
+          {/* <div
+            aria-hidden="true"
+            className="mt-7 flex items-center justify-center gap-1.5"
+          >
+            <span className="size-1.5 rotate-[43deg] bg-foreground" />
+            <span className="size-2 rotate-[43deg] bg-primary" />
+            <span className="size-2.5 rotate-[43deg] bg-primary/50" />
+          </div> */}
+
+          <form onSubmit={handleSubmit} className="mt-7 space-y-4">
+            <div>
+              <Label htmlFor="email" className="text-sm text-foreground">
+                Email
+              </Label>
+              <Input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                autoComplete="email"
+                placeholder="you@gconsult.ng"
+                className="mt-2 bg-background"
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="password" className="text-sm text-foreground">
+                Password
+              </Label>
+              <Input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                autoComplete="current-password"
+                placeholder="••••••••"
+                className="mt-2 bg-background"
+              />
+            </div>
+
+            {error && (
+              <p className="text-sm text-destructive" role="alert">
+                {error}
+              </p>
+            )}
+
+            <Button
+              type="submit"
+              disabled={loading}
+              className="w-full rounded-full"
+            >
+              {loading ? 'Signing in' : 'Sign in'}
+            </Button>
+          </form>
         </div>
 
-        {/* Error message */}
-        {error && (
-          <div className="bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3 mb-6">
-            <p className="text-sm text-red-400">{error}</p>
-          </div>
-        )}
-
-        {/* Success message */}
-        {success && (
-          <div className="bg-primary/10 border border-primary/20 rounded-lg px-4 py-3 mb-6">
-            <p className="text-sm text-primary">{success}</p>
-          </div>
-        )}
-
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <div>
-            <label className="block text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1.5">
-              Email
-            </label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@gconsult.ng"
-              required
-              className="w-full bg-muted border border-border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-            />
-          </div>
-
-          <div>
-            <label className="block text-xs font-medium text-muted-foreground uppercase tracking-widest mb-1.5">
-              Password
-            </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              required
-              className="w-full bg-muted border border-border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-primary text-primary-foreground text-sm font-semibold py-3 rounded-lg hover:opacity-90 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed mt-2"
-          >
-            {loading
-              ? 'Please wait...'
-              : isSignUp
-                ? 'Create account'
-                : 'Sign in'}
-          </button>
-        </form>
-
-        {/* Toggle */}
-        <button
-          onClick={() => {
-            setIsSignUp(!isSignUp);
-            setError('');
-            setSuccess('');
-          }}
-          className="w-full text-center text-xs text-muted-foreground mt-4 hover:text-foreground transition-colors"
-        >
-          {isSignUp
-            ? 'Already have an account? Sign in'
-            : 'New admin? Create account'}
-        </button>
+        <p className="mt-6 text-center text-xs text-muted-foreground">
+          Staff access only. Accounts are created by invitation.
+        </p>
       </div>
     </main>
   );
