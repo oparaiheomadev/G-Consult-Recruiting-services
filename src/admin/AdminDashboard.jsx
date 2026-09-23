@@ -37,10 +37,11 @@ export default function AdminDashboard() {
   const [status, setStatus] = useState('all');
   const [page, setPage] = useState(1);
 
-  // Which job each modal is working on. null closes it.
-  const [formJob, setFormJob] = useState(undefined); // undefined = closed, null = new, object = editing
+  // Modal state. formOpen controls visibility, editingJob holds which job (null = new).
+  const [formOpen, setFormOpen] = useState(false);
   const [viewJob, setViewJob] = useState(null);
   const [deleteJob, setDeleteJob] = useState(null);
+  const [editingJob, setEditingJob] = useState(null);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setSession(data.session));
@@ -96,7 +97,10 @@ export default function AdminDashboard() {
 
           <div className="flex items-center gap-2">
             <Button
-              onClick={() => setFormJob(null)}
+              onClick={() => {
+                setEditingJob(null);
+                setFormOpen(true);
+              }}
               size="sm"
               className="rounded-full px-5"
             >
@@ -214,7 +218,10 @@ export default function AdminDashboard() {
                     <Eye className="size-4" aria-hidden="true" />
                   </Button>
                   <Button
-                    onClick={() => setFormJob(job)}
+                    onClick={() => {
+                      setEditingJob(job);
+                      setFormOpen(true);
+                    }}
                     variant="outline"
                     size="icon-sm"
                     aria-label={`Edit ${job.title}`}
@@ -264,9 +271,9 @@ export default function AdminDashboard() {
 
       {/* Modals */}
       <JobFormModal
-        job={formJob}
-        open={formJob !== undefined}
-        onClose={() => setFormJob(undefined)}
+        job={editingJob}
+        open={formOpen}
+        onClose={() => setFormOpen(false)}
         adminEmail={session?.user?.email}
       />
 
@@ -275,7 +282,8 @@ export default function AdminDashboard() {
         onClose={() => setViewJob(null)}
         onEdit={(job) => {
           setViewJob(null);
-          setFormJob(job);
+          setEditingJob(job);
+          setFormOpen(true);
         }}
       />
 

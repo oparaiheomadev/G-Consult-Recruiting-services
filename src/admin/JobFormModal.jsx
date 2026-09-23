@@ -106,7 +106,7 @@ export default function JobFormModal({ job, open, onClose, adminEmail }) {
               value={form.title}
               onChange={handleChange}
               required
-              placeholder="Chief Optometrist"
+              placeholder=""
               className="mt-2"
             />
           </div>
@@ -119,7 +119,7 @@ export default function JobFormModal({ job, open, onClose, adminEmail }) {
               value={form.company}
               onChange={handleChange}
               required
-              placeholder="Specsmart"
+              placeholder=""
               className="mt-2"
             />
           </div>
@@ -148,7 +148,7 @@ export default function JobFormModal({ job, open, onClose, adminEmail }) {
                 value={form.location}
                 onChange={handleChange}
                 required
-                placeholder="Lagos or Remote"
+                placeholder=""
                 className="mt-2"
               />
             </div>
@@ -198,7 +198,7 @@ export default function JobFormModal({ job, open, onClose, adminEmail }) {
                 name="salary"
                 value={form.salary}
                 onChange={handleChange}
-                placeholder="₦500,000 to ₦800,000"
+                placeholder=""
                 className="mt-2"
               />
             </div>
