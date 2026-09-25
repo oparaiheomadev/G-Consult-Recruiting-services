@@ -24,6 +24,8 @@ const empty = {
   responsibilities: '',
   requirements: '',
   How_toapply: '',
+  apply_email: '',
+  apply_url: '',
   closing_date: '',
 };
 
@@ -37,6 +39,15 @@ const sectors = [
   'Technology',
   'Other',
 ];
+
+function makeSlug(title, company) {
+  return `${title} ${company}`
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+}
 
 const fieldBase =
   'mt-2 w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50';
@@ -73,11 +84,16 @@ export default function JobFormModal({ job, open, onClose, adminEmail }) {
     e.preventDefault();
 
     if (isEditing) {
-      const { id, created_at, posted_by, is_active, ...fields } = form;
+      const { id, created_at, posted_by, is_active, slug, ...fields } = form;
       updateJob.mutate({ id: job.id, fields }, { onSuccess: onClose });
     } else {
       createJob.mutate(
-        { ...form, posted_by: adminEmail, is_active: true },
+        {
+          ...form,
+          slug: makeSlug(form.title, form.company),
+          posted_by: adminEmail,
+          is_active: true,
+        },
         { onSuccess: onClose },
       );
     }
@@ -263,6 +279,31 @@ export default function JobFormModal({ job, open, onClose, adminEmail }) {
             />
           </div>
 
+          <div>
+            <Label htmlFor="apply_email">Apply email</Label>
+            <Input
+              id="apply_email"
+              name="apply_email"
+              type="email"
+              value={form.apply_email}
+              onChange={handleChange}
+              required
+              className="mt-2"
+            />
+          </div>
+
+          <div>
+            <Label htmlFor="apply_url">Apply_url</Label>
+            <Input
+              id="apply_url"
+              name="apply_url"
+              type="url"
+              value={form.apply_url}
+              onChange={handleChange}
+              required
+              className="mt-2"
+            />
+          </div>
           <div>
             <Label htmlFor="closing_date">Closing date</Label>
             <Input

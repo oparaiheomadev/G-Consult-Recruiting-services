@@ -6,7 +6,7 @@ import nackLogo from '@/assets/nack.png';
 const testimonials = [
   {
     quote:
-      'Gconsult sent us five candidates in under 48 hours. We hired two, and both are still with us three years later. That is the kind of partner you do not replace.',
+      ' sent us five candidates in under 48 hours. We hired two, and both are still with us three years later. That is the kind of partner you do not replace.',
     name: 'Tolu Akinpeloye',
     role: 'Founder and Director',
     company: 'Nack Apparel',
@@ -16,7 +16,7 @@ const testimonials = [
 
   {
     quote:
-      'We had tried three other agencies before Gconsult. None of them came close. Within two weeks our Head of Engineering was in place.',
+      'We had tried three other agencies before . None of them came close. Within two weeks our Head of Engineering was in place.',
     name: 'Mark Coackley',
     role: 'Chief Executive',
     company: 'Specsmart',
@@ -25,9 +25,9 @@ const testimonials = [
   },
   {
     quote:
-      'They understood our culture immediately. They did not just send CVs, they sent people who actually fit. Our last three hires all came through Gconsult.',
-    name: 'Fatima Bello',
-    role: 'HR Director',
+      'They understood our culture immediately. They did not just send CVs, they sent people who actually fit. Our last three hires all came through .',
+    name: 'Millicent Duru',
+    role: 'Chief Executive Officer',
     company: 'GiselleHomes',
     logo: 'https://www.google.com/s2/favicons?domain=gisellehomes.com&sz=128',
     initials: 'GH',

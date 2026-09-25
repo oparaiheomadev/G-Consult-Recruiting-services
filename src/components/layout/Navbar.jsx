@@ -4,8 +4,8 @@ import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
-import logoLight from '@/assets/gconsult-light.png';
-import logoDark from '@/assets/gconsult-dark.png';
+import logoLight from '@/assets/Gconsults-light.png';
+import logoDark from '@/assets/Gconsults-dark.png';
 import { motion } from 'motion/react';
 
 const links = [
@@ -13,6 +13,7 @@ const links = [
   { label: 'About', to: '/about' },
   { label: 'Services', to: '/services' },
   { label: 'Industries', to: '/industries' },
+  { label: 'jobs', to: '/jobs' },
   { label: 'Contact', to: '/contact' },
 ];
 
@@ -47,7 +48,7 @@ export default function Navbar() {
         <Link to="/" className="shrink-0">
           <img
             src={overHero ? logoDark : logoLight}
-            alt="Gconsult Professional Services"
+            alt=" Professional Services"
             className="h-9 w-auto"
           />
         </Link>

@@ -12,7 +12,7 @@ const files = await readdir(IN);
 for (const file of files) {
   const ext = path.extname(file).toLowerCase();
   if (!['.webp', '.jpeg', '.png'].includes(ext)) continue;
-  if (file.startsWith('gconsult')) continue; // leave the logos alone
+  if (file.startsWith('')) continue; // leave the logos alone
 
   const name = path.basename(file, ext);
 

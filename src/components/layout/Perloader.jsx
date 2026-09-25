@@ -1,101 +1,69 @@
 import { useEffect, useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import logoLight from '@/assets/Gconsults-light.png';
 
 export default function Preloader() {
-  const [visible, setVisible] = useState(true);
-  const [fadeOut, setFadeOut] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const reduceMotion = useReducedMotion();
+  const [done, setDone] = useState(false);
 
   useEffect(() => {
-    const duration = 1200;
-    const startTime = performance.now();
+    // Keep it short. Hide as soon as the page is ready,
+    // with a small floor so it doesn't flash on fast connections.
+    const floor = setTimeout(() => setDone(true), 1200);
 
-    function ease(t) {
-      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    function onLoad() {
+      setTimeout(() => setDone(true), 300);
     }
 
-    let animFrame;
-    function tick(now) {
-      const elapsed = now - startTime;
-      const t = Math.min(elapsed / duration, 1);
-      setProgress(Math.round(ease(t) * 100));
-      if (t < 1) {
-        animFrame = requestAnimationFrame(tick);
-      }
+    if (document.readyState === 'complete') {
+      onLoad();
+    } else {
+      window.addEventListener('load', onLoad);
     }
-
-    animFrame = requestAnimationFrame(tick);
-
-    const fadeTimer = setTimeout(() => setFadeOut(true), 1400);
-    const hideTimer = setTimeout(() => setVisible(false), 1900);
 
     return () => {
-      cancelAnimationFrame(animFrame);
-      clearTimeout(fadeTimer);
-      clearTimeout(hideTimer);
+      clearTimeout(floor);
+      window.removeEventListener('load', onLoad);
     };
   }, []);
 
-  if (!visible) return null;
-
   return (
-    <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center gap-7 transition-opacity duration-500 ${
-        fadeOut ? 'opacity-0' : 'opacity-100'
-      }`}
-      style={{ backgroundColor: 'var(--color-background)' }}
-    >
-      {/* Logo */}
-      <h1 className="text-3xl font-bold tracking-tight animate-fade-in">
-        <span
-          className="font-serif italic"
-          style={{ color: 'var(--color-foreground)' }}
+    <AnimatePresence>
+      {!done && (
+        <motion.div
+          key="preloader"
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-surface"
         >
-          G -
-        </span>
-        <span style={{ color: 'var(--color-primary)' }}>Consult</span>
-      </h1>
+          {/* Diamond texture */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-24 -left-20 size-64 rotate-[41deg] bg-accent"
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-28 -right-16 size-72 rotate-[47deg] bg-accent"
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute top-1/4 right-1/4 size-10 rotate-[43deg] bg-primary/10"
+          />
 
-      {/* Tagline */}
-      <p
-        className="text-xs uppercase tracking-widest animate-fade-in animation-delay-200"
-        style={{ color: 'var(--color-muted-foreground)' }}
-      >
-        Finding the right talent...
-      </p>
-
-      {/* Progress bar */}
-      <div className="flex items-center gap-3 animate-fade-in animation-delay-300">
-        <div
-          className="w-48 h-1 rounded-full overflow-visible relative"
-          style={{ backgroundColor: 'var(--color-muted)' }}
-        >
-          <div
-            className="h-full rounded-full relative"
-            style={{
-              width: `${progress}%`,
-              backgroundColor: 'var(--color-primary)',
-              boxShadow:
-                '0 0 8px 2px var(--color-primary), 0 0 20px 4px color-mix(in srgb, var(--color-primary) 40%, transparent)',
+          <motion.img
+            src={logoLight}
+            alt="Gconsult"
+            className="relative h-10 w-auto"
+            animate={reduceMotion ? {} : { y: [0, -10, 0] }}
+            transition={{
+              duration: 0.9,
+              repeat: Infinity,
+              ease: 'easeInOut',
             }}
-          >
-            {/* Glowing dot */}
-            <span
-              className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full"
-              style={{
-                backgroundColor: 'var(--color-secondary-foreground)',
-                boxShadow:
-                  '0 0 10px 4px var(--color-primary), 0 0 24px 8px color-mix(in srgb, var(--color-primary) 50%, transparent)',
-              }}
-            />
-          </div>
-        </div>
-        <span
-          className="text-xs w-8"
-          style={{ color: 'var(--color-muted-foreground)' }}
-        >
-          {progress}%
-        </span>
-      </div>
-    </div>
+          />
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

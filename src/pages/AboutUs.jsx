@@ -11,12 +11,12 @@ export default function AboutUs() {
   return (
     <main>
       <Seo
-        title="About Gconsult | One Of The Fastest Growing Recruitment Firm in Lagos"
+        title="About  | One Of The Fastest Growing Recruitment Firm in Lagos"
         description="A Lagos recruitment practice built around senior attention rather than volume. Every search is run by the consultant who took the brief."
         path="/about"
       />
       <PageHero
-        badge="About Gconsult"
+        badge="About "
         title="A small firm, on purpose."
         intro="We are a Lagos recruitment practice built around senior attention rather than volume. Every search is run by the person who took the brief."
       />

@@ -89,7 +89,7 @@ export default function AdminDashboard() {
       <header className="dark bg-background">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-5">
           <div>
-            <p className="font-serif text-lg text-foreground">Gconsult admin</p>
+            <p className="font-serif text-lg text-foreground"> admin</p>
             <p className="mt-0.5 text-xs text-muted-foreground">
               {session?.user?.email}
             </p>

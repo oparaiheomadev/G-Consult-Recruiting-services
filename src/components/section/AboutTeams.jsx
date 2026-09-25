@@ -1,19 +1,26 @@
 import { motion } from 'motion/react';
 import { fadeUpDelayed } from '@/lib/motion';
-import personOneImg from '@/assets/team.webp';
+import AvatarIllustration from '@/components/ui/avatar-illustration';
 
 const people = [
   {
     name: '[First name Last name]',
     role: '[Role]',
+    gender: 'female',
     body: '[One or two lines: background, which sectors they cover, what they handle on a search.]',
-    image: personOneImg,
+  },
+
+  {
+    name: '[First name Last name]',
+    role: '[Role]',
+    gender: 'female',
+    body: '[One or two lines: background, which sectors they cover, what they handle on a search.]',
   },
   {
     name: '[First name Last name]',
     role: '[Role]',
+    gender: 'male',
     body: '[One or two lines: background, which sectors they cover, what they handle on a search.]',
-    image: personOneImg,
     offset: true,
   },
 ];
@@ -43,42 +50,33 @@ export default function AboutTeam() {
           </p>
         </motion.div>
 
-        <ul className="mt-16 grid max-w-3xl gap-10 sm:grid-cols-2 sm:gap-12">
+        <ul className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {people.map((person, i) => (
             <motion.li
               key={person.name}
               {...fadeUpDelayed(0.1 + i * 0.1)}
-              className={person.offset ? 'sm:mt-14' : undefined}
+              className={person.offset ? 'sm:mt-12' : undefined}
             >
-              <div className="group relative isolate">
-                <div className="overflow-hidden rounded-2xl">
-                  <img
-                    src={person.image}
-                    alt={person.name}
-                    loading="lazy"
-                    decoding="async"
-                    className="aspect-[4/5] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              <div className="group h-full rounded-2xl border border-border bg-card p-8 transition-colors duration-500 hover:border-primary/40">
+                <div className="relative isolate w-fit">
+                  <AvatarIllustration
+                    variant={person.gender}
+                    className="size-20"
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -bottom-1 -right-1 size-3.5 rotate-[43deg] bg-primary transition-transform duration-500 ease-out group-hover:scale-125"
                   />
                 </div>
 
-                {/* Diamond corner mark */}
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -bottom-3 -right-3 size-9 rotate-[43deg] bg-background"
-                />
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -bottom-[3px] -right-[3px] size-3 rotate-[43deg] bg-primary transition-transform duration-500 ease-out group-hover:scale-125"
-                />
+                <h3 className="mt-6 font-serif text-xl text-card-foreground">
+                  {person.name}
+                </h3>
+                <p className="mt-1 text-sm text-primary">{person.role}</p>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  {person.body}
+                </p>
               </div>
-
-              <h3 className="mt-6 font-serif text-xl text-foreground">
-                {person.name}
-              </h3>
-              <p className="mt-1 text-sm text-primary">{person.role}</p>
-              <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">
-                {person.body}
-              </p>
             </motion.li>
           ))}
         </ul>

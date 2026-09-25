@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import { Mail, MapPin, Phone } from 'lucide-react';
-import logoDark from '@/assets/gconsult-dark.png';
+import logoDark from '@/assets/Gconsults-dark.png';
 
 const columns = [
   {
@@ -37,7 +37,7 @@ export default function Footer() {
             <Link to="/" className="inline-block">
               <img
                 src={logoDark}
-                alt="Gconsult Professional Services"
+                alt="Gconsults Professional Services"
                 className="h-9 w-auto shrink-0"
               />
             </Link>
@@ -48,10 +48,10 @@ export default function Footer() {
             </p>
 
             <a
-              href="https://www.linkedin.com/company/gconsult"
+              href="https://www.linkedin.com/company/Gconsults"
               target="_blank"
               rel="noreferrer noopener"
-              aria-label="Gconsult on LinkedIn"
+              aria-label="Gconsults on LinkedIn"
               className="mt-6 inline-flex size-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors duration-300 hover:border-primary/50 hover:text-foreground"
             ></a>
           </div>
@@ -104,7 +104,7 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="mailto:gconsultrecruitments@gmail.com"
+                  href="mailto:Gconsultsrecruitments@gmail.com"
                   className="flex items-start gap-3 text-sm text-muted-foreground transition-colors duration-300 hover:text-primary"
                 >
                   <Mail
@@ -112,7 +112,7 @@ export default function Footer() {
                     aria-hidden="true"
                   />
                   <span className="break-all">
-                    gconsultrecruitments@gmail.com
+                    Gconsultsrecruitments@gmail.com
                   </span>
                 </a>
               </li>
@@ -122,7 +122,7 @@ export default function Footer() {
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 md:flex-row md:items-center">
           <p className="text-xs text-muted-foreground">
-            © {year} Gconsult Professional Services. All rights reserved.
+            © {year} Gconsults Professional Services. All rights reserved.
           </p>
 
           <div className="flex items-center gap-6">

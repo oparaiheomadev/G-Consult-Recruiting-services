@@ -112,9 +112,8 @@ export default function HomeHero() {
             {...item}
             className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground"
           >
-            Gconsult is a Lagos recruitment and executive search firm placing
-            senior and mid-level professionals with organisations across
-            Nigeria.
+            is a Lagos recruitment and executive search firm placing senior and
+            mid-level professionals with organisations across Nigeria.
           </motion.p>
 
           <motion.div

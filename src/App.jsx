@@ -1,3 +1,4 @@
+import WhatsAppButton from '@/components/layout/WhatsAppButton';
 import { Routes, Route, useLocation } from 'react-router';
 import Navbar from './components/layout/Navbar';
 import Home from './pages/Home';
@@ -11,7 +12,7 @@ import AdminDashboard from './admin/AdminDashboard';
 import Footer from './components/layout/Footer';
 import NotFound from '@/pages/NotFound';
 import ScrollToTop from './components/layout/ScrollToTop';
-
+import Jobs from '@/pages/Jobs';
 import Preloader from './components/layout/Perloader';
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
 
   return (
     <div>
-      {/* <Preloader /> */}
+      <Preloader />
       <ScrollToTop />
       {!isAdminRoute && <Navbar />}
       <Routes>
@@ -29,6 +30,7 @@ function App() {
         <Route path="/industries" element={<Industries />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/services" element={<Service />} />
+        <Route path="/jobs" element={<Jobs />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route
           path="/admin/dashboard"
@@ -41,6 +43,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       {!isAdminRoute && <Footer />}
+      {!isAdminRoute && <WhatsAppButton />}
     </div>
   );
 }

@@ -41,10 +41,10 @@ export default function AboutStory() {
             className="mt-7 max-w-xl space-y-5 text-base leading-relaxed text-muted-foreground"
           >
             <p>
-              Gconsult was founded in 2023 by a practising HR director who had
-              spent years on the client side of recruitment, receiving
-              shortlists of twenty people for a role that needed five, and
-              interviewing candidates nobody had spoken to properly.
+              was founded in 2023 by a practising HR director who had spent
+              years on the client side of recruitment, receiving shortlists of
+              twenty people for a role that needed five, and interviewing
+              candidates nobody had spoken to properly.
             </p>
             <p>
               The problem was never a shortage of talent. It was that agencies

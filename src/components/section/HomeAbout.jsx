@@ -63,7 +63,7 @@ export default function HomeAbout() {
         <div className="relative isolate">
           <img
             src={teamImg}
-            alt="Gconsult consultants in conversation at the Lagos office"
+            alt=" consultants in conversation at the Lagos office"
             loading="lazy"
             decoding="async"
             className="aspect-[4/5] w-full rounded-2xl object-cover"

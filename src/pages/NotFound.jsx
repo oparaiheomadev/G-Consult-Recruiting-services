@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <main className="dark relative isolate flex min-h-screen items-center overflow-hidden bg-background/90 px-6">
       <Seo
-        title="Page Not Found | Gconsult"
+        title="Page Not Found | "
         description="This page does not exist."
         path=""
       />

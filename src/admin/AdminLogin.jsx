@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import logoLight from '@/assets/gconsult-light.png';
+import logoLight from '@/assets/Gconsults-light.png';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
@@ -59,7 +59,7 @@ export default function AdminLogin() {
       <div className="w-full max-w-sm">
         <img
           src={logoLight}
-          alt="Gconsult Professional Services"
+          alt=" Professional Services"
           className="mx-auto mb-8 h-9 w-auto shrink-0"
         />
 
@@ -93,7 +93,7 @@ export default function AdminLogin() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 autoComplete="email"
-                placeholder="you@gconsult.ng"
+                placeholder="you@.ng"
                 className="mt-2 bg-background"
               />
             </div>
