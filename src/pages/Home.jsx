@@ -7,7 +7,7 @@ import HomeProcess from '../components/section/HomeProcess';
 import HomeAbout from '../components/section/HomeAbout';
 import HomeTestimonials from '../components/section/HomeTestimonials';
 import HomeFaq from '@/components/section/HomeFAQ';
-import HomeCta from '@/components/section/HomeCTA';
+import HomeCta from '@/components/section/HomeCta';
 
 export default function Home() {
   return (

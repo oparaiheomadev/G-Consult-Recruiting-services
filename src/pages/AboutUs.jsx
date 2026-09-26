@@ -1,9 +1,9 @@
 import Seo from '@/components/layout/Seo';
 import PageHero from '../components/shared/PageHero';
 
-import Aboutus from '../assets/aboutus.webp';
+import Aboutus from '@/assets/aboutUs.webp';
 import CtaBanner from '../components/shared/CtaBanner';
-import AboutStory from '../components/section/Aboutstory';
+import AboutStory from '../components/section/AboutStory';
 import AboutPractices from '@/components/section/AboutPractices';
 import AboutTeams from '@/components/section/AboutTeams';
 import AboutClients from '@/components/section/AboutClients';

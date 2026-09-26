@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { fadeUp, fadeUpDelayed } from '@/lib/motion';
-import storyImg from '@/assets/AboutUs.webp';
+import aboutImg from '@/assets/aboutUs.webp';
 
 export default function AboutStory() {
   return (
@@ -11,7 +11,7 @@ export default function AboutStory() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
         <motion.div {...fadeUp} className="relative isolate">
           <img
-            src={storyImg}
+            src={aboutImg}
             alt="A hiring conversation in progress"
             loading="lazy"
             decoding="async"
