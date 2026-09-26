@@ -6,9 +6,9 @@ import Contact from './pages/Contact';
 import Industries from './pages/Industries';
 import Service from './pages/Service';
 import AboutUs from './pages/AboutUs';
-import ProtectedRoute from './components/layout/ProtectedRoute';
-import AdminLogin from './admin/AdminLogin';
-import AdminDashboard from './admin/AdminDashboard';
+// import ProtectedRoute from './components/layout/ProtectedRoute';
+// import AdminLogin from './admin/AdminLogin';
+// import AdminDashboard from './admin/AdminDashboard';
 import Footer from './components/layout/Footer';
 import NotFound from '@/pages/NotFound';
 import ScrollToTop from './components/layout/ScrollToTop';
@@ -33,15 +33,15 @@ function App() {
         <Route path="/services" element={<Service />} />
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/privacy" element={<Privacy />} />
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route
+        {/* <Route path="/admin/login" element={<AdminLogin />} /> */}
+        {/* <Route
           path="/admin/dashboard"
           element={
             <ProtectedRoute>
               <AdminDashboard />
             </ProtectedRoute>
           }
-        />
+        /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
       {!isAdminRoute && <Footer />}
