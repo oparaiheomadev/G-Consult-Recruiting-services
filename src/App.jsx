@@ -14,6 +14,7 @@ import NotFound from '@/pages/NotFound';
 import ScrollToTop from './components/layout/ScrollToTop';
 import Jobs from '@/pages/Jobs';
 import Preloader from './components/layout/Perloader';
+import Privacy from '@/pages/Privacy';
 
 function App() {
   const location = useLocation();
@@ -31,6 +32,7 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/services" element={<Service />} />
         <Route path="/jobs" element={<Jobs />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route
           path="/admin/dashboard"

@@ -1,22 +1,22 @@
 import { Link } from 'react-router';
 import { ArrowUpRight } from 'lucide-react';
-import nairalImg from '@/assets/naira.webp';
+import propertyImg from '@/assets/propertyImg.webp';
 import technologyImg from '@/assets/technology.webp';
-import healthcareImg from '@/assets/healthcare.webp';
+import healthImg from '@/assets/healthImg.webp';
 import retailImg from '@/assets/retail.webp';
-import role from '@/assets/role.webp';
+import fashionimg from '@/assets/fashionimg.webp';
 
 const industries = [
   {
-    name: 'Financial services',
-    body: 'Banking, insurance, fintech, risk and compliance.',
-    image: nairalImg,
+    name: 'Real estate and property',
+    body: 'Property firms, estate agencies and developers, from support roles to sales.',
+    image: propertyImg,
     tall: true,
   },
   { name: 'Technology', image: technologyImg, tall: true },
-  { name: 'Healthcare', image: healthcareImg },
+  { name: 'Healthcare', image: healthImg },
   { name: 'FMCG and retail', image: retailImg },
-  { name: 'Public sector and NGOs', image: role },
+  { name: 'Fashion and Retail', image: fashionimg },
 ];
 
 export default function HomeIndustries() {

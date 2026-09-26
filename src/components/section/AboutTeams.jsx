@@ -4,23 +4,23 @@ import AvatarIllustration from '@/components/ui/avatar-illustration';
 
 const people = [
   {
-    name: '[First name Last name]',
-    role: '[Role]',
+    name: 'Igwemoh Happiness',
+    role: 'Recruitment Specialist',
     gender: 'female',
-    body: '[One or two lines: background, which sectors they cover, what they handle on a search.]',
+    body: 'Three years in recruitment, previously at Sigma Consulting Group. Covers fashion, retail and FMCG, and handles first-round interviews on every search she runs.',
   },
 
   {
-    name: '[First name Last name]',
-    role: '[Role]',
-    gender: 'female',
-    body: '[One or two lines: background, which sectors they cover, what they handle on a search.]',
+    name: 'Oparaiheoma Ebuka David',
+    role: 'Developer/Admin-Assistant',
+    gender: 'male',
+    body: 'Previously at Profeworld Technologies, IOM and UNICEF. Handles the technology side of the practice and supports on recruitment and admin.',
   },
   {
-    name: '[First name Last name]',
-    role: '[Role]',
-    gender: 'male',
-    body: '[One or two lines: background, which sectors they cover, what they handle on a search.]',
+    name: 'Ogwo Nnenna',
+    role: 'HR Director',
+    gender: 'female',
+    body: 'Leads executive search and headhunting, and handles our payroll and HR advisory work. Years of in-house HR experience on the client side of recruitment.',
     offset: true,
   },
 ];

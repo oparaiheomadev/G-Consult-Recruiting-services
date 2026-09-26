@@ -6,7 +6,7 @@ export default function CtaBanner({
   body = 'Tell us about the role and we will have a shortlist with you inside two working days.',
   primaryLabel = 'Start a search',
   primaryTo = '/contact',
-  secondaryLabel = 'Book a call',
+  secondaryLabel = 'Talk to us',
   secondaryTo = '/contact',
 }) {
   return (
