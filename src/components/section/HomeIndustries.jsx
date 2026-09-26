@@ -4,7 +4,7 @@ import propertyImg from '@/assets/propertyImg.webp';
 import technologyImg from '@/assets/technology.webp';
 import healthImg from '@/assets/healthImg.webp';
 import retailImg from '@/assets/retail.webp';
-import fashionimg from '@/assets/fashionimg.webp';
+import fashionImg from '@/assets/fashionImg.webp';
 
 const industries = [
   {
@@ -16,7 +16,7 @@ const industries = [
   { name: 'Technology', image: technologyImg, tall: true },
   { name: 'Healthcare', image: healthImg },
   { name: 'FMCG and retail', image: retailImg },
-  { name: 'Fashion and Retail', image: fashionimg },
+  { name: 'Fashion and Retail', image: fashionImg },
 ];
 
 export default function HomeIndustries() {
