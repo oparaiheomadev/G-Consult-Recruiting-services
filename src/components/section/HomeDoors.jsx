@@ -11,16 +11,16 @@ const doors = [
     to: '/contact',
     image: hiringImg,
     alt: 'A hiring manager in conversation across a desk',
-    wide: true,
   },
   {
     title: 'I want a role',
-    body: 'Browse open positions, or send your CV and we will come to you.',
-    cta: 'View open roles',
+    body: 'We are building a board of the roles we are recruiting for right now.',
+    cta: 'See what is coming',
     to: '/jobs',
     image: roleImg,
     alt: 'A professional working at a laptop',
-    wide: false,
+    badge: 'Coming soon',
+    muted: true,
   },
 ];
 
@@ -44,11 +44,22 @@ export default function HomeDoors() {
             className="absolute inset-0 size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
 
-          {/* Legibility layer. Heavier at the base where the text sits. */}
+          {/* Legibility layer */}
           <span
             aria-hidden="true"
-            className="absolute inset-0 bg-background/45 transition-colors duration-500 group-hover:bg-background/35"
+            className={
+              door.muted
+                ? 'absolute inset-0 bg-foreground/85 transition-colors duration-500 group-hover:bg-foreground/45'
+                : 'absolute inset-0 bg-background/45 transition-colors duration-500 group-hover:bg-background/35'
+            }
           />
+
+          {/* Status badge */}
+          {door.badge && (
+            <span className="dark absolute right-6 top-6 rounded-full bg-background/85 px-3 py-1 text-xs text-muted-foreground backdrop-blur-[2px]">
+              {door.badge}
+            </span>
+          )}
 
           <div className="dark absolute inset-x-0 bottom-0 bg-background/85 p-7 backdrop-blur-[2px] md:p-9">
             <h2 className="font-serif text-2xl text-foreground md:text-3xl">

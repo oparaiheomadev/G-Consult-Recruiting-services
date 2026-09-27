@@ -3,7 +3,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { X } from 'lucide-react';
 
 const PHONE = '2348106863792'; // no plus, no spaces
-const MESSAGE = 'Hello Gconsult, I would like to talk about a role.';
+const MESSAGE = 'Hello Gconsult, I would like to talk about hiring for a role.';
 
 const href = `https://wa.me/${PHONE}?text=${encodeURIComponent(MESSAGE)}`;
 
@@ -39,7 +39,7 @@ export default function WhatsAppButton() {
             </button>
 
             <p className="pr-4 text-sm leading-relaxed text-card-foreground">
-              Hiring or looking for a role? Message us on WhatsApp.
+              Hiring? Message us on WhatsApp
             </p>
           </motion.div>
         )}
@@ -49,7 +49,7 @@ export default function WhatsAppButton() {
         href={href}
         target="_blank"
         rel="noreferrer noopener"
-        aria-label="Chat with Gconsult on WhatsApp"
+        aria-label="Message Gconsult about hiring"
         onClick={() => setDismissed(true)}
         className="group relative flex size-14 shrink-0 items-center justify-center rounded-full bg-[#25D366] shadow-lg transition-transform duration-300 ease-out hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
       >

@@ -112,8 +112,9 @@ export default function HomeHero() {
             {...item}
             className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground"
           >
-            is a Lagos recruitment and executive search firm placing senior and
-            mid-level professionals with organisations across Nigeria.
+            Gconsults professional services is a recruitment and executive
+            search firm placing senior and mid-level professionals with
+            organisations across Nigeria.
           </motion.p>
 
           <motion.div
@@ -121,7 +122,7 @@ export default function HomeHero() {
             className="mt-10 flex flex-wrap items-center gap-6"
           >
             <Button asChild size="lg" className="rounded-full px-7">
-              <Link to="/contact">Start a search</Link>
+              <Link to="/contact">Hire with us</Link>
             </Button>
             <Link
               to="/services"
