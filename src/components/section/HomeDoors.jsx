@@ -1,83 +1,76 @@
 import { Link } from 'react-router';
 import { ArrowUpRight } from 'lucide-react';
-import hiringImg from '@/assets/Hiring.webp';
-import roleImg from '@/assets/Role.webp';
-
-const doors = [
-  {
-    title: "I'm hiring",
-    body: 'Tell us the role and the kind of person it needs. First shortlist lands in two days.',
-    cta: 'Start a search',
-    to: '/contact',
-    image: hiringImg,
-    alt: 'A hiring manager in conversation across a desk',
-  },
-  {
-    title: 'I want a role',
-    body: 'We are building a board of the roles we are recruiting for right now.',
-    cta: 'See what is coming',
-    to: '/jobs',
-    image: roleImg,
-    alt: 'A professional working at a laptop',
-    badge: 'Coming soon',
-    muted: true,
-  },
-];
+import { Button } from '@/components/ui/button';
 
 export default function HomeDoors() {
   return (
     <section
       aria-label="Choose your path"
-      className="grid md:grid-cols-[1.25fr_0.75fr]"
+      className="grid border-y border-border md:grid-cols-[1.3fr_0.7fr]"
     >
-      {doors.map((door) => (
-        <Link
-          key={door.title}
-          to={door.to}
-          className="group relative isolate block min-h-[26rem] overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-primary"
-        >
-          <img
-            src={door.image}
-            alt={door.alt}
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-          />
+      {/* Primary — employers */}
+      <div className="relative isolate overflow-hidden border-l-4 border-primary bg-accent px-8 py-16 md:px-12 md:py-20">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-32 -right-20 -z-10 size-80 rotate-[41deg] bg-primary/[0.06]"
+        />
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-10 right-1/4 -z-10 size-8 rotate-[44deg] bg-primary/[0.12]"
+        />
 
-          {/* Legibility layer */}
+        <div className="max-w-md">
+          <h2 className="font-serif text-2xl text-foreground md:text-3xl">
+            I'm hiring
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Tell us the role and the kind of person it needs. First shortlist
+            lands in two days.
+          </p>
+
+          <Button asChild size="lg" className="mt-7 rounded-full px-7">
+            <Link to="/contact">Hire with us</Link>
+          </Button>
+        </div>
+      </div>
+
+      {/* Secondary — candidates */}
+      <Link
+        to="/jobs"
+        className="group relative isolate block overflow-hidden bg-surface px-8 py-16 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-primary md:px-12 md:py-20"
+      >
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-28 -left-20 -z-10 size-64 rotate-[47deg] bg-primary/[0.06] transition-transform duration-700 ease-out group-hover:scale-105"
+        />
+
+        <span className="absolute right-6 top-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-background py-1 pl-2.5 pr-3.5 text-xs text-primary">
           <span
             aria-hidden="true"
-            className={
-              door.muted
-                ? 'absolute inset-0 bg-foreground/85 transition-colors duration-500 group-hover:bg-foreground/45'
-                : 'absolute inset-0 bg-background/45 transition-colors duration-500 group-hover:bg-background/35'
-            }
+            className="size-1.5 rotate-[43deg] bg-primary"
           />
+          Coming soon
+        </span>
 
-          {/* Status badge */}
-          {door.badge && (
-            <span className="dark absolute right-6 top-6 rounded-full bg-background/85 px-3 py-1 text-xs text-muted-foreground backdrop-blur-[2px]">
-              {door.badge}
+        <div className="max-w-xs">
+          <h2 className="font-serif text-xl text-foreground md:text-2xl">
+            I want a role
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            We are building a board of the roles we are recruiting for right
+            now.
+          </p>
+          <span className="mt-6 inline-flex items-center gap-1.5 text-sm text-primary">
+            <span className="border-b border-transparent pb-0.5 transition-colors duration-300 group-hover:border-primary">
+              See what is coming
             </span>
-          )}
-
-          <div className="dark absolute inset-x-0 bottom-0 bg-background/85 p-7 backdrop-blur-[2px] md:p-9">
-            <h2 className="font-serif text-2xl text-foreground md:text-3xl">
-              {door.title}
-            </h2>
-            <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              {door.body}
-            </p>
-            <span className="mt-5 inline-flex items-center gap-1.5 text-sm text-primary">
-              {door.cta}
-              <ArrowUpRight
-                className="size-4 transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                aria-hidden="true"
-              />
-            </span>
-          </div>
-        </Link>
-      ))}
+            <ArrowUpRight
+              className="size-4 transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              aria-hidden="true"
+            />
+          </span>
+        </div>
+      </Link>
     </section>
   );
 }

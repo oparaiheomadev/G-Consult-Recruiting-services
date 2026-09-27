@@ -54,7 +54,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="ml-auto hidden md:flex items-center gap-8">
           {links.map((link) => (
             <NavLink key={link.to} to={link.to} end={link.to === '/'}>
               {({ isActive }) => (
@@ -76,13 +76,13 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Button
+          {/* <Button
             asChild
             size="sm"
             className="hidden sm:inline-flex rounded-full px-5"
           >
             <Link to="/contact">Book a consultation</Link>
-          </Button>
+          </Button> */}
 
           {/* Mobile */}
           <Sheet open={open} onOpenChange={setOpen}>

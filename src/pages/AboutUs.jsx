@@ -18,15 +18,18 @@ export default function AboutUs() {
       <PageHero
         badge="About "
         title="A small firm, on purpose."
-        intro="We are a Lagos recruitment practice built around senior attention rather than volume. Every search is run by the person who took the brief."
+        intro="A Nigerian recruitment practice built around senior attention rather than volume. Every search is run by the person who took the brief."
       />
       <AboutStory />
       <AboutPractices />
       <AboutTeams />
       <AboutClients />
+
       <CtaBanner
         title="Want to talk to someone who will actually run the search?"
         body="Tell us about the role. We will tell you honestly whether we are the right fit for it."
+        primaryLabel="Get in touch"
+        secondaryLabel={null}
       />
     </main>
   );

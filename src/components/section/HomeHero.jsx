@@ -2,18 +2,13 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { Button } from '@/components/ui/button';
+import heroImg from '@/assets/consultshero.webp';
 
 const rotatingWords = [
   'move markets',
   'build cultures',
   'drive growth',
   'shape futures',
-];
-
-const proof = [
-  { value: '47', label: 'hours to first shortlist' },
-  { value: '5', label: 'candidates, never more' },
-  { value: '90', label: 'days replacement cover' },
 ];
 
 const ease = [0.22, 1, 0.36, 1];
@@ -38,7 +33,7 @@ export default function HomeHero() {
         animate: 'shown',
         variants: {
           hidden: {},
-          shown: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
+          shown: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
         },
       };
 
@@ -54,33 +49,49 @@ export default function HomeHero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="dark relative isolate overflow-hidden bg-background pt-36 pb-16 md:pt-44 md:pb-20"
+      className="dark relative isolate overflow-hidden bg-background"
     >
+      {/* Image: full bleed on mobile, right side on desktop */}
+      <div className="absolute inset-0 md:left-[42%]">
+        <img
+          src={heroImg}
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          className="size-full object-cover object-[90%_center] md:object-[68%_center] "
+        />
+      </div>
+
+      {/* Fades the dark panel into the image */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[linear-gradient(to_bottom,var(--background)_0%,color-mix(in_srgb,var(--background)_85%,transparent)_50%,color-mix(in_srgb,var(--background)_35%,transparent)_100%)] md:bg-[linear-gradient(to_right,var(--background)_0%,var(--background)_52%,transparent_92%)]"
+      />
+
       {/* Brand texture */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute -top-24 -right-16 size-72 rotate-[41deg] bg-secondary/50"
+        className="pointer-events-none absolute -top-20 -left-16 size-56 rotate-[41deg] bg-secondary/40"
       />
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-10 right-40 size-16 rotate-[47deg] bg-secondary/40"
+        className="pointer-events-none absolute bottom-16 left-[18%] size-12 rotate-[47deg] bg-secondary/30"
       />
 
       <motion.div
         {...enter}
-        className="relative mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-[1.6fr_0.4fr] md:items-end"
+        className="relative mx-auto max-w-6xl px-6 pt-36 pb-24 md:pt-44 md:pb-32"
       >
-        <div>
+        <div className="max-w-xl">
           <motion.h1
             {...item}
             id="hero-heading"
-            className="max-w-xl text-4xl leading-[1.12] tracking-tight text-foreground md:text-6xl"
+            className="text-4xl leading-[1.12] tracking-tight text-foreground md:text-6xl"
           >
             We don't fill roles.
             <br />
             We find people who{' '}
             <span className="relative inline-block align-baseline">
-              {/* Reserves width so the line never reflows */}
               <span className="invisible" aria-hidden="true">
                 shape futures
               </span>
@@ -105,16 +116,14 @@ export default function HomeHero() {
                 </motion.span>
               </AnimatePresence>
             </span>
-            .
           </motion.h1>
 
           <motion.p
             {...item}
             className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground"
           >
-            Gconsults professional services is a recruitment and executive
-            search firm placing senior and mid-level professionals with
-            organisations across Nigeria.
+            Gconsult is a recruitment and executive search firm placing senior
+            and mid-level professionals with organisations across Nigeria.
           </motion.p>
 
           <motion.div
@@ -122,7 +131,7 @@ export default function HomeHero() {
             className="mt-10 flex flex-wrap items-center gap-6"
           >
             <Button asChild size="lg" className="rounded-full px-7">
-              <Link to="/contact">Hire with us</Link>
+              <Link to="/contact">Hire With Us</Link>
             </Button>
             <Link
               to="/services"
@@ -132,22 +141,6 @@ export default function HomeHero() {
             </Link>
           </motion.div>
         </div>
-
-        <motion.dl {...item} className="border-l border-border pl-6 md:pl-8">
-          {proof.map((stat, i) => (
-            <div key={stat.value} className={i > 0 ? 'mt-8' : undefined}>
-              <dt className="sr-only">{stat.label}</dt>
-              <dd>
-                <span className="block font-serif text-3xl text-foreground md:text-4xl">
-                  {stat.value}
-                </span>
-                <span className="mt-1 block text-xs leading-relaxed text-muted-foreground">
-                  {stat.label}
-                </span>
-              </dd>
-            </div>
-          ))}
-        </motion.dl>
       </motion.div>
     </section>
   );
