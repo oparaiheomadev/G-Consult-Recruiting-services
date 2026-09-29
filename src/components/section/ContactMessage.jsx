@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { Check, Loader2, Mail, MapPin, Phone } from 'lucide-react';
+import { Check, Loader2 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -18,49 +18,14 @@ const empty = {
 
 const subjects = [
   'I want to hire talent',
-  "I'm looking for a job",
   'Executive search enquiry',
   'HR consulting',
   'Payroll',
   'General enquiry',
 ];
 
-const details = [
-  {
-    icon: Mail,
-    title: 'Email us',
-    note: 'We reply within two working hours.',
-    value: 'gconsultrecruitments@gmail.com',
-    href: 'mailto:gconsultrecruitments@gmail.com',
-  },
-  {
-    icon: MapPin,
-    title: 'Office',
-    note: 'By appointment, so call ahead.',
-    value: 'Lagos, Nigeria',
-    href: null,
-  },
-  {
-    icon: Phone,
-    title: 'Call us',
-    note: 'Monday to Friday, 8am to 6pm.',
-    value: '+234 810 686 3792',
-    href: 'tel:+2348106863792',
-  },
-];
-
-const socials = [
-  {
-    label: 'Instagram',
-    href: 'https://instagram.com/',
-    path: 'M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.89 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16Zm0 4.86a4.98 4.98 0 1 0 0 9.96 4.98 4.98 0 0 0 0-9.96Zm0 8.21a3.23 3.23 0 1 1 0-6.46 3.23 3.23 0 0 1 0 6.46Zm5.17-8.4a1.16 1.16 0 1 0 0-2.33 1.16 1.16 0 0 0 0 2.33Z',
-  },
-  {
-    label: 'Facebook',
-    href: 'https://facebook.com/',
-    path: 'M13.5 22v-8.4h2.83l.42-3.28H13.5V8.22c0-.95.26-1.6 1.63-1.6h1.74V3.69A23.5 23.5 0 0 0 14.33 3.5c-2.5 0-4.22 1.53-4.22 4.35v2.47H7.28v3.28h2.83V22h3.39Z',
-  },
-];
+const fieldBase =
+  'w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground outline-none transition-colors duration-200 placeholder:text-muted-foreground/60 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/10';
 
 export default function ContactMessage() {
   const [form, setForm] = useState(empty);
@@ -129,114 +94,46 @@ export default function ContactMessage() {
 
   const fieldClass = (name) =>
     cn(
-      'mt-2 border-border bg-surface',
-      errors[name] && 'border-destructive focus-visible:border-destructive',
+      fieldBase,
+      errors[name] &&
+        'border-destructive focus-visible:border-destructive focus-visible:ring-destructive/10',
     );
 
   return (
-    <main className="bg-surface pt-32 pb-24 md:pt-40">
-      <div className="mx-auto max-w-5xl px-6">
-        <div className="grid overflow-hidden rounded-3xl border border-border md:grid-cols-[0.85fr_1.15fr]">
-          {/* LEFT — brand panel */}
-          <div className="relative isolate overflow-hidden bg-primary p-9 md:p-10">
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute -top-14 -right-10 -z-10 size-40 rotate-[41deg] bg-primary-foreground/10"
-            />
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute bottom-24 -left-10 -z-10 size-28 rotate-[47deg] bg-primary-foreground/10"
-            />
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute top-1/2 right-10 -z-10 size-6 rotate-[43deg] bg-primary-foreground/20"
-            />
+    <main className="relative isolate overflow-hidden bg-surface pt-32 pb-24 md:pt-40 md:pb-28">
+      {/* Brand texture */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-28 -left-24 -z-10 size-72 rotate-[41deg] bg-primary/[0.05]"
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-32 -right-20 -z-10 size-80 rotate-[47deg] bg-primary/[0.05]"
+      />
 
-            <h1 className="font-serif text-2xl text-primary-foreground md:text-3xl">
-              Get in touch
-            </h1>
-            <p className="mt-3 max-w-xs text-sm leading-relaxed text-primary-foreground/75">
-              Hiring, looking for a role, or not sure yet. You will reach one of
-              the two consultants who would run your search.
-            </p>
+      <div className="mx-auto max-w-2xl px-6">
+        {/* Heading */}
+        <div className="text-center">
+          <h1 className="text-3xl leading-tight tracking-tight text-foreground md:text-4xl">
+            Tell us what you need.
+          </h1>
+          <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-muted-foreground">
+            A consultant replies within two working hours. Or email us at{' '}
+            <a
+              href="mailto:gconsultrecruitments@gmail.com"
+              className="text-primary underline-offset-4 hover:underline"
+            >
+              gconsultrecruitments@gmail.com
+            </a>
+          </p>
+        </div>
 
-            <dl className="mt-10 space-y-7">
-              {details.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div key={item.title} className="flex items-start gap-3.5">
-                    <Icon
-                      className="mt-0.5 size-4 shrink-0 text-primary-foreground/80"
-                      aria-hidden="true"
-                    />
-                    <div>
-                      <dt className="text-sm font-medium text-primary-foreground">
-                        {item.title}
-                      </dt>
-                      <dd>
-                        <span className="mt-0.5 block text-xs text-primary-foreground/70">
-                          {item.note}
-                        </span>
-                        {item.href ? (
-                          <a
-                            href={item.href}
-                            className="mt-1.5 block break-all text-sm text-primary-foreground underline-offset-4 hover:underline"
-                          >
-                            {item.value}
-                          </a>
-                        ) : (
-                          <span className="mt-1.5 block text-sm text-primary-foreground">
-                            {item.value}
-                          </span>
-                        )}
-                      </dd>
-                    </div>
-                  </div>
-                );
-              })}
-            </dl>
-
-            <div className="mt-12 flex items-center gap-3">
-              {socials.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  aria-label={social.label}
-                  className="flex size-9 items-center justify-center rounded-full border border-primary-foreground/25 text-primary-foreground/80 transition-colors duration-300 hover:bg-primary-foreground/10 hover:text-primary-foreground"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-4"
-                    aria-hidden="true"
-                  >
-                    <path d={social.path} />
-                  </svg>
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* RIGHT — form */}
-          <div className="bg-card p-9 md:p-10">
-            <h2 className="font-serif text-2xl text-card-foreground md:text-3xl">
-              Tell us what you need
-            </h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Or email us directly at{' '}
-              <a
-                href="mailto:gconsultrecruitments@gmail.com"
-                className="text-primary underline-offset-4 hover:underline"
-              >
-                gconsultrecruitments@gmail.com
-              </a>
-            </p>
-
-            <form onSubmit={handleSubmit} noValidate className="mt-8 space-y-5">
+        {/* Form card */}
+        <div className="mt-12 rounded-2xl border border-border bg-card p-7 shadow-sm md:mt-14 md:p-10">
+          <form onSubmit={handleSubmit} noValidate className="space-y-6">
+            <div className="grid gap-6 sm:grid-cols-2">
               <div>
-                <Label htmlFor="fullName" className="text-sm text-foreground">
+                <Label htmlFor="fullName" className="mb-2 block text-sm">
                   Name
                 </Label>
                 <Input
@@ -249,14 +146,14 @@ export default function ContactMessage() {
                   className={fieldClass('fullName')}
                 />
                 {errors.fullName && (
-                  <p className="mt-1.5 text-xs text-destructive">
+                  <p className="mt-2 text-xs text-destructive">
                     {errors.fullName}
                   </p>
                 )}
               </div>
 
               <div>
-                <Label htmlFor="company" className="text-sm text-foreground">
+                <Label htmlFor="company" className="mb-2 block text-sm">
                   Company{' '}
                   <span className="text-muted-foreground">(optional)</span>
                 </Label>
@@ -270,109 +167,103 @@ export default function ContactMessage() {
                   className={fieldClass('company')}
                 />
               </div>
+            </div>
 
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div>
-                  <Label htmlFor="email" className="text-sm text-foreground">
-                    Email
-                  </Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    placeholder="you@company.com"
-                    className={fieldClass('email')}
-                  />
-                  {errors.email && (
-                    <p className="mt-1.5 text-xs text-destructive">
-                      {errors.email}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <Label htmlFor="phone" className="text-sm text-foreground">
-                    Phone number
-                  </Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={form.phone}
-                    onChange={handleChange}
-                    placeholder="+234 000 000 0000"
-                    maxLength={20}
-                    className={fieldClass('phone')}
-                  />
-                  {errors.phone && (
-                    <p className="mt-1.5 text-xs text-destructive">
-                      {errors.phone}
-                    </p>
-                  )}
-                </div>
-              </div>
-
+            <div className="grid gap-6 sm:grid-cols-2">
               <div>
-                <Label htmlFor="subject" className="text-sm text-foreground">
-                  What is this about
+                <Label htmlFor="email" className="mb-2 block text-sm">
+                  Email
                 </Label>
-                <select
-                  id="subject"
-                  name="subject"
-                  value={form.subject}
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={form.email}
                   onChange={handleChange}
-                  className={cn(
-                    'h-9 w-full rounded-md border px-3 text-sm text-foreground outline-none',
-                    'focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50',
-                    fieldClass('subject'),
-                  )}
-                >
-                  <option value="">Select one</option>
-                  {subjects.map((subject) => (
-                    <option key={subject} value={subject}>
-                      {subject}
-                    </option>
-                  ))}
-                </select>
-                {errors.subject && (
-                  <p className="mt-1.5 text-xs text-destructive">
-                    {errors.subject}
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <Label htmlFor="message" className="text-sm text-foreground">
-                  How can we help?
-                </Label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  value={form.message}
-                  onChange={handleChange}
-                  placeholder="Tell us a little about the role..."
-                  maxLength={2000}
-                  className={cn(
-                    'w-full resize-none rounded-md border px-3 py-2.5 text-sm text-foreground outline-none placeholder:text-muted-foreground',
-                    'focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50',
-                    fieldClass('message'),
-                  )}
+                  placeholder="you@company.com"
+                  className={fieldClass('email')}
                 />
-                {errors.message && (
-                  <p className="mt-1.5 text-xs text-destructive">
-                    {errors.message}
+                {errors.email && (
+                  <p className="mt-2 text-xs text-destructive">
+                    {errors.email}
                   </p>
                 )}
               </div>
 
+              <div>
+                <Label htmlFor="phone" className="mb-2 block text-sm">
+                  Phone
+                </Label>
+                <Input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  value={form.phone}
+                  onChange={handleChange}
+                  placeholder="+234 000 000 0000"
+                  maxLength={20}
+                  className={fieldClass('phone')}
+                />
+                {errors.phone && (
+                  <p className="mt-2 text-xs text-destructive">
+                    {errors.phone}
+                  </p>
+                )}
+              </div>
+            </div>
+
+            <div>
+              <Label htmlFor="subject" className="mb-2 block text-sm">
+                What is this about
+              </Label>
+              <select
+                id="subject"
+                name="subject"
+                value={form.subject}
+                onChange={handleChange}
+                className={cn(fieldClass('subject'), 'appearance-none')}
+              >
+                <option value="">Select one</option>
+                {subjects.map((subject) => (
+                  <option key={subject} value={subject}>
+                    {subject}
+                  </option>
+                ))}
+              </select>
+              {errors.subject && (
+                <p className="mt-2 text-xs text-destructive">
+                  {errors.subject}
+                </p>
+              )}
+            </div>
+
+            <div>
+              <Label htmlFor="message" className="mb-2 block text-sm">
+                How can we help?
+              </Label>
+              <textarea
+                id="message"
+                name="message"
+                rows={6}
+                value={form.message}
+                onChange={handleChange}
+                placeholder="The role, the team, the timeline, or whatever else is useful."
+                maxLength={2000}
+                className={cn(fieldClass('message'), 'resize-none')}
+              />
+              {errors.message && (
+                <p className="mt-2 text-xs text-destructive">
+                  {errors.message}
+                </p>
+              )}
+            </div>
+
+            <div className="pt-1">
               <Button
                 type="submit"
                 size="lg"
                 disabled={mutation.isPending}
-                className="w-full rounded-full"
+                className="w-full rounded-full sm:w-auto sm:px-10"
               >
                 {mutation.isPending ? (
                   <>
@@ -386,23 +277,22 @@ export default function ContactMessage() {
                   'Send message'
                 )}
               </Button>
+            </div>
 
-              <div aria-live="polite" className="min-h-6">
-                {mutation.isSuccess && (
-                  <p className="flex items-center gap-2 text-sm text-primary">
-                    <Check className="size-4" aria-hidden="true" />
-                    Message sent. We will reply within two working hours.
-                  </p>
-                )}
-                {mutation.isError && (
-                  <p className="text-sm text-destructive">
-                    Something went wrong. Please try again, or email us
-                    directly.
-                  </p>
-                )}
-              </div>
-            </form>
-          </div>
+            <div aria-live="polite" className="min-h-6">
+              {mutation.isSuccess && (
+                <p className="flex items-center gap-2 text-sm text-primary">
+                  <Check className="size-4 shrink-0" aria-hidden="true" />
+                  Message sent. We will reply within two working hours.
+                </p>
+              )}
+              {mutation.isError && (
+                <p className="text-sm text-destructive">
+                  Something went wrong. Please try again, or email us directly.
+                </p>
+              )}
+            </div>
+          </form>
         </div>
       </div>
     </main>
