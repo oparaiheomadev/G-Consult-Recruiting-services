@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     q: 'How are your fees structured?',
-    a: 'A percentage of the first-year package, invoiced when the person starts rather than when we send the shortlist. If you do not hire, you do not pay. Executive search is retained and split across three stages. Either way, the figure is agreed in writing before any work begins.',
+    a: 'A percentage of the Annual Gross Salary package, invoiced when the candidate  starts rather than when we send the shortlist. If you do not hire, you do not pay.',
   },
   {
     q: 'Do candidates pay anything?',
@@ -23,15 +23,12 @@ const faqs = [
   },
   {
     q: 'What happens if the person we hire does not work out?',
-    a: 'We run the search again at no additional fee. Thirty days on core recruitment, ninety on executive search. That cover starts from their first day.',
+    a: 'We run the search again at no additional fee. Thirty days on core recruitment, sixty days on executive search. That cover starts from their first day.',
   },
-  {
-    q: 'Do you work with small companies?',
-    a: 'Most of our clients are small and mid-sized businesses. We are a small firm ourselves, which is why a single consultant handles your search from the first conversation through to the ninety-day check-in.',
-  },
+
   {
     q: 'Can you run a search confidentially?',
-    a: 'Regularly. Where the current postholder is still in the role, we approach candidates without naming your organisation until they reach final stages and have signed a confidentiality agreement.',
+    a: 'Yes. Where the current postholder is still in the role, we post job anonymously without naming your organization .',
   },
 ];
 

@@ -29,7 +29,7 @@ export default function AboutClients() {
             id="clients-heading"
             className="max-w-sm text-3xl leading-tight tracking-tight text-foreground md:text-4xl"
           >
-            Four organisations have trusted us so far.
+            Our Clients
           </h2>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
             We would rather name them than quote a number. Each one came back

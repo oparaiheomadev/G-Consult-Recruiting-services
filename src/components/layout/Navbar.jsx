@@ -13,7 +13,7 @@ const links = [
   { label: 'About', to: '/about' },
   { label: 'Services', to: '/services' },
   { label: 'Industries', to: '/industries' },
-  { label: 'jobs', to: '/jobs' },
+  { label: 'Jobs', to: '/jobs' },
   { label: 'Contact', to: '/contact' },
 ];
 

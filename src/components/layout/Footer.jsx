@@ -43,8 +43,8 @@ export default function Footer() {
             </Link>
 
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Connecting exceptional people with ambitious organisations across
-              Nigeria.
+              “Invest in the right people today, and watch your business reap
+              the dividends tomorrow.
             </p>
 
             <a
@@ -112,7 +112,7 @@ export default function Footer() {
                     aria-hidden="true"
                   />
                   <span className="break-all">
-                    Gconsultsrecruitments@gmail.com
+                    gconsultsrecruitments@gmail.com
                   </span>
                 </a>
               </li>

@@ -17,8 +17,8 @@ export default function AboutUs() {
       />
       <PageHero
         badge="About "
-        title="A small firm, on purpose."
-        intro="A Nigerian recruitment practice built around senior attention rather than volume. Every search is run by the person who took the brief."
+        title="A small Growing frim, on purpose."
+        intro="A Consulting firm built around Attention,  rather than volume. Every search is managed by the recruiter who took the brief."
       />
       <AboutStory />
       <AboutPractices />

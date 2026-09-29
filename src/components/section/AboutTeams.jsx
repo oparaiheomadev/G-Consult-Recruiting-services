@@ -7,20 +7,18 @@ const people = [
     name: 'Igwemoh Happiness',
     role: 'Recruitment Specialist',
     gender: 'female',
-    body: 'Three years in recruitment, previously at Sigma Consulting Group. Covers fashion, retail and FMCG, and handles first-round interviews on every search she runs.',
   },
 
   {
     name: 'Oparaiheoma Ebuka David',
     role: 'Developer/Admin-Assistant',
     gender: 'male',
-    body: 'Previously at Profeworld Technologies, IOM and UNICEF. Handles the technology side of the practice and supports on recruitment and admin.',
   },
   {
-    name: 'Ogwo Nnenna',
+    name: 'Ogwo Amarachi',
     role: 'HR Director',
     gender: 'female',
-    body: 'Leads executive search and headhunting, and handles our payroll and HR advisory work. Years of in-house HR experience on the client side of recruitment.',
+
     offset: true,
   },
 ];

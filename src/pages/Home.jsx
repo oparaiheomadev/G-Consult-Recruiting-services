@@ -5,7 +5,7 @@ import HomeServices from '../components/section/HomeServices';
 import HomeIndustries from '../components/section/HomeIndustries';
 import HomeProcess from '../components/section/HomeProcess';
 import HomeAbout from '../components/section/HomeAbout';
-import HomeTestimonials from '../components/section/HomeTestimonials';
+// import HomeTestimonials from '../components/section/HomeTestimonials';
 import HomeFaq from '@/components/section/HomeFAQ';
 import CtaBanner from '@/components/shared/CtaBanner';
 
@@ -23,7 +23,7 @@ export default function Home() {
       <HomeIndustries />
       <HomeProcess />
       <HomeAbout />
-      <HomeTestimonials />
+      {/* <HomeTestimonials /> */}
       <HomeFaq />
       <CtaBanner
         primaryLabel="Get in touch"

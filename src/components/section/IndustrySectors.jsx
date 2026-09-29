@@ -21,7 +21,7 @@ const sectors = [
   },
   {
     id: 'real-estate',
-    name: 'Real estate and property',
+    name: 'Real Estate',
     lede: 'Property firms run lean, so every hire sits close to the principal and needs judgement as much as skill.',
     detail:
       'We have placed support and operations roles where discretion mattered as much as competence, for teams where one person covers a lot of ground.',
@@ -30,7 +30,7 @@ const sectors = [
   },
   {
     id: 'fmcg',
-    name: 'FMCG and food',
+    name: 'FMCG',
     lede: 'Margins are thin and the finance function carries the weight. Getting that hire wrong is expensive in a way others are not.',
     detail:
       'We place finance and commercial roles for producers and distributors, with reference checks that go beyond the two names on the CV.',
@@ -39,16 +39,18 @@ const sectors = [
   },
   {
     id: 'health-optometry',
-    name: 'Health and optometry',
+    name: 'Health',
     lede: 'Clinical hiring has a hard floor: licensing, registration and real practice history. There is no talking around it.',
     detail:
       'We verify credentials before shortlist, and we understand the difference between a practitioner who can run a clinic and one who cannot.',
     roles: [
-      'Senior optometrist',
+      'Senior Optometrist',
       'Optometrists',
-      'Clinic customer care',
-      'Business development executive',
-      'optician',
+      'Clinic Customer Care',
+      'Business Development Executive',
+      'Optician',
+      'Digital Marketer',
+      'Graphic Designer',
     ],
     image: healthImg,
   },

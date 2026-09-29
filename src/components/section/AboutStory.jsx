@@ -33,7 +33,9 @@ export default function AboutStory() {
             id="story-heading"
             className="max-w-lg text-3xl leading-tight tracking-tight text-foreground md:text-4xl"
           >
-            We started because good hiring kept coming down to luck.
+            “We started with a simple belief: great hiring shouldn’t come down
+            to luck. It should come down to strategy, expertise, and the right
+            fit.
           </motion.h2>
 
           <motion.div
@@ -41,10 +43,10 @@ export default function AboutStory() {
             className="mt-7 max-w-xl space-y-5 text-base leading-relaxed text-muted-foreground"
           >
             <p>
-              was founded in 2020 by a practising HR Specilaist who had spent
-              years on the client side of recruitment, receiving shortlists of
-              twenty people for a role that needed five, and interviewing
-              candidates nobody had spoken to properly.
+              Gconsults was founded in 2020 by a practising HR professional who
+              had spent years on the client side of recruitment, receiving
+              shortlists of twenty people for a role that needed five, and
+              interviewing candidates nobody had spoken to properly.
             </p>
             <p>
               The problem was never a shortage of talent. It was that agencies
@@ -55,7 +57,7 @@ export default function AboutStory() {
             <p className="text-foreground">
               We built the opposite. Fewer clients, longer relationships, and a
               consultant who stays with your search from the first conversation
-              to the ninety-day check-in.
+              to the thiirty-days check-in.
             </p>
           </motion.div>
         </div>
