@@ -1,12 +1,60 @@
 import { motion } from 'motion/react';
 import { fadeUp, fadeUpDelayed } from '@/lib/motion';
+import nackLogo from '@/assets/nack.webp';
+import GiselleHomesLogo from '@/assets/GiselleHomesLogo.webp';
+import specs from '@/assets/specs.webp';
+import gold from '@/assets/gold.png';
 
 const clients = [
-  { name: 'Nack Apparel', sector: 'Fashion and retail' },
-  { name: 'Specsmart', sector: 'Optical and healthcare' },
-  { name: 'GiselleHomes', sector: 'Property' },
-  { name: 'Goldrich Spicy', sector: 'Food and FMCG' },
+  {
+    name: 'Nack Apparel',
+    sector: 'Fashion and retail',
+    logo: nackLogo,
+    initials: 'NA',
+  },
+  {
+    name: 'Specsmart',
+    sector: 'Optical and healthcare',
+    logo: specs,
+    initials: 'SS',
+  },
+  {
+    name: 'GiselleHomes',
+    sector: 'Property',
+    logo: GiselleHomesLogo,
+    initials: 'GH',
+  },
+  {
+    name: 'Goldrich Spicy',
+    sector: 'Food and FMCG',
+    logo: gold,
+    initials: 'GS',
+  },
 ];
+
+function ClientMark({ client }) {
+  if (client.logo) {
+    return (
+      <span className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-foreground p-1.5">
+        <img
+          src={client.logo}
+          alt=""
+          loading="lazy"
+          className="size-full object-contain"
+        />
+      </span>
+    );
+  }
+
+  return (
+    <span
+      aria-hidden="true"
+      className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary font-serif text-sm text-secondary-foreground"
+    >
+      {client.initials}
+    </span>
+  );
+}
 
 export default function AboutClients() {
   return (
@@ -29,7 +77,7 @@ export default function AboutClients() {
             id="clients-heading"
             className="max-w-sm text-3xl leading-tight tracking-tight text-foreground md:text-4xl"
           >
-            Our Clients
+            Our clients
           </h2>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
             We would rather name them than quote a number. Each one came back
@@ -42,17 +90,17 @@ export default function AboutClients() {
             <motion.li
               key={client.name}
               {...fadeUpDelayed(0.05 * i)}
-              className="group rounded-xl border border-border p-5 transition-colors duration-500 hover:border-primary/40"
+              className="group flex items-center gap-4 rounded-xl border border-border p-5 transition-colors duration-500 hover:border-primary/40"
             >
-              <span className="block font-serif text-base text-foreground">
-                {client.name}
-              </span>
-              <span className="mt-1 flex items-center gap-2 text-xs text-muted-foreground">
-                <span
-                  aria-hidden="true"
-                  className="size-1 shrink-0 rotate-[43deg] bg-primary opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                />
-                {client.sector}
+              <ClientMark client={client} />
+
+              <span className="min-w-0">
+                <span className="block truncate font-serif text-base text-foreground">
+                  {client.name}
+                </span>
+                <span className="mt-0.5 block truncate text-xs text-muted-foreground">
+                  {client.sector}
+                </span>
               </span>
             </motion.li>
           ))}

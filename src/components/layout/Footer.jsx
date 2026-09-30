@@ -43,8 +43,8 @@ export default function Footer() {
             </Link>
 
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              “Invest in the right people today, and watch your business reap
-              the dividends tomorrow.
+              Invest in the right people today, and watch your business reap the
+              dividends tomorrow.
             </p>
 
             <a

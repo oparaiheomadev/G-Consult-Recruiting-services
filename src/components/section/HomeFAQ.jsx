@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     q: 'How are your fees structured?',
-    a: 'A percentage of the Annual Gross Salary package, invoiced when the candidate  starts rather than when we send the shortlist. If you do not hire, you do not pay.',
+    a: 'A percentage of the Annual Gross Salary package is invoiced when the candidate  starts rather than when we send the shortlist. If you do not hire, you do not pay.',
   },
   {
     q: 'Do candidates pay anything?',
