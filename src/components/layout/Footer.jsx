@@ -104,7 +104,7 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="mailto:Gconsultsrecruitments@gmail.com"
+                  href="mailto:info@gconsultservices.com.ng"
                   className="flex items-start gap-3 text-sm text-muted-foreground transition-colors duration-300 hover:text-primary"
                 >
                   <Mail
@@ -112,7 +112,7 @@ export default function Footer() {
                     aria-hidden="true"
                   />
                   <span className="break-all">
-                    gconsultsrecruitments@gmail.com
+                    info@gconsultservices.com.ng
                   </span>
                 </a>
               </li>

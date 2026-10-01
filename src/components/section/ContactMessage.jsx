@@ -120,10 +120,10 @@ export default function ContactMessage() {
           <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-muted-foreground">
             A consultant replies within two working hours. Or email us at{' '}
             <a
-              href="mailto:gconsultrecruitments@gmail.com"
+              href="mailto:info@gconsultservices.com.ng"
               className="text-primary underline-offset-4 hover:underline"
             >
-              gconsultrecruitments@gmail.com
+              info@gconsultservices.com.ng
             </a>
           </p>
         </div>
@@ -141,7 +141,7 @@ export default function ContactMessage() {
                   name="fullName"
                   value={form.fullName}
                   onChange={handleChange}
-                  placeholder="Your name"
+                  placeholder=""
                   maxLength={80}
                   className={fieldClass('fullName')}
                 />
@@ -162,7 +162,7 @@ export default function ContactMessage() {
                   name="company"
                   value={form.company}
                   onChange={handleChange}
-                  placeholder="Your organisation"
+                  placeholder=""
                   maxLength={100}
                   className={fieldClass('company')}
                 />
@@ -180,7 +180,7 @@ export default function ContactMessage() {
                   type="email"
                   value={form.email}
                   onChange={handleChange}
-                  placeholder="you@company.com"
+                  placeholder=""
                   className={fieldClass('email')}
                 />
                 {errors.email && (
@@ -200,7 +200,7 @@ export default function ContactMessage() {
                   type="tel"
                   value={form.phone}
                   onChange={handleChange}
-                  placeholder="+234 000 000 0000"
+                  placeholder=""
                   maxLength={20}
                   className={fieldClass('phone')}
                 />

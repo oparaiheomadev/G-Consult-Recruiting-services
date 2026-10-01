@@ -46,7 +46,7 @@ export default function Jobs() {
 
         <div className="mt-10 flex flex-wrap items-center gap-6">
           <Button asChild size="lg" className="rounded-full px-7">
-            <a href="mailto: gconsultrecruitments@gmail.com?subject=CV%20submission">
+            <a href="mailto: info@gconsultservices.com.ng?subject=CV%20submission">
               Send us your CV
             </a>
           </Button>

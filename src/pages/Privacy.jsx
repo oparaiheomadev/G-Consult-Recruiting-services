@@ -6,7 +6,7 @@ const sections = [
     title: 'Who we are',
     body: [
       'Gconsult Professional Services is a recruitment and HR advisory firm based in Lagos, Nigeria. This notice explains what personal information we collect through this website and how we handle it.',
-      'You can reach us at gconsultrecruitments@gmail.com, on +234 810 686 3792.',
+      'You can reach us at info@gconsultservices.com.ng, on +234 810 686 3792.',
     ],
   },
   {
@@ -43,7 +43,7 @@ const sections = [
     title: 'Your rights',
     body: [
       'Under the Nigeria Data Protection Act, you can ask us what personal information we hold about you, ask us to correct it if it is wrong, ask us to delete it, or withdraw your consent to us holding it.',
-      'Email gconsultrecruitments@gmail.com and we will respond within thirty days. There is no charge.',
+      'Email info@gconsultservices.com.ng and we will respond within thirty days. There is no charge.',
     ],
   },
   {
