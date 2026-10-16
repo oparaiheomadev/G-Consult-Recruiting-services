@@ -59,3 +59,41 @@ export function useDeleteJob() {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: JOBS_KEY }),
   });
 }
+
+// ---- Public reading ----
+
+export function usePublicJobs() {
+  return useQuery({
+    queryKey: ['public-jobs'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('jobs')
+        .select(
+          'id, slug, title, company, location, type, sector, salary, description, closing_date, created_at',
+        )
+        .eq('is_active', true)
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      return data;
+    },
+  });
+}
+
+export function usePublicJob(slug) {
+  return useQuery({
+    queryKey: ['public-jobs', slug],
+    enabled: Boolean(slug),
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('jobs')
+        .select('*')
+        .eq('slug', slug)
+        .eq('is_active', true)
+        .maybeSingle();
+
+      if (error) throw error;
+      return data;
+    },
+  });
+}

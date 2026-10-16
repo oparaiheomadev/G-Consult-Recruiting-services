@@ -6,15 +6,16 @@ import Contact from './pages/Contact';
 import Industries from './pages/Industries';
 import Service from './pages/Service';
 import AboutUs from './pages/AboutUs';
-// import ProtectedRoute from './components/layout/ProtectedRoute';
-// import AdminLogin from './admin/AdminLogin';
-// import AdminDashboard from './admin/AdminDashboard';
+import ProtectedRoute from './components/layout/ProtectedRoute';
+import AdminLogin from './admin/AdminLogin';
+import AdminDashboard from './admin/AdminDashboard';
 import Footer from './components/layout/Footer';
 import NotFound from '@/pages/NotFound';
 import ScrollToTop from './components/layout/ScrollToTop';
 import Jobs from '@/pages/Jobs';
 import Preloader from './components/layout/Perloader';
 import Privacy from '@/pages/Privacy';
+import JobDetail from '@/pages/JobDetail';
 
 function App() {
   const location = useLocation();
@@ -33,15 +34,16 @@ function App() {
         <Route path="/services" element={<Service />} />
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/privacy" element={<Privacy />} />
-        {/* <Route path="/admin/login" element={<AdminLogin />} /> */}
-        {/* <Route
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/jobs/:slug" element={<JobDetail />} />
+        <Route
           path="/admin/dashboard"
           element={
             <ProtectedRoute>
               <AdminDashboard />
             </ProtectedRoute>
           }
-        /> */}
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
       {!isAdminRoute && <Footer />}

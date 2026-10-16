@@ -26,18 +26,23 @@ const empty = {
   How_toapply: '',
   apply_email: '',
   apply_url: '',
+  What_we_offer: '',
   closing_date: '',
 };
 
 const jobTypes = ['Full-time', 'Part-time', 'Contract', 'Remote', 'Hybrid'];
 
 const sectors = [
-  'Fashion and retail',
-  'Real estate and property',
-  'FMCG and food',
-  'Health and optometry',
+  'Fashion',
+  'Real Estate',
+  'FMCG',
+  'Health',
   'Technology',
-  'Other',
+  'NGO',
+  'Officer',
+  'Banking',
+  'Oil and Gas',
+  'Others',
 ];
 
 function makeSlug(title, company) {
@@ -227,7 +232,7 @@ export default function JobFormModal({ job, open, onClose, adminEmail }) {
               name="description"
               value={form.description}
               onChange={handleChange}
-              required
+              // required
               rows={3}
               placeholder="A short introduction to the role."
               className={cn(fieldBase, 'resize-none')}
@@ -244,7 +249,7 @@ export default function JobFormModal({ job, open, onClose, adminEmail }) {
               name="responsibilities"
               value={form.responsibilities}
               onChange={handleChange}
-              required
+              // required
               rows={4}
               className={cn(fieldBase, 'resize-none')}
             />
@@ -287,21 +292,33 @@ export default function JobFormModal({ job, open, onClose, adminEmail }) {
               type="email"
               value={form.apply_email}
               onChange={handleChange}
-              required
               className="mt-2"
             />
           </div>
 
           <div>
-            <Label htmlFor="apply_url">Apply_url</Label>
+            <Label htmlFor="apply_url">Apply URL</Label>
             <Input
               id="apply_url"
               name="apply_url"
               type="url"
               value={form.apply_url}
               onChange={handleChange}
-              required
               className="mt-2"
+            />
+          </div>
+          <div>
+            <Label htmlFor="What_we_offer">
+              What we offer{' '}
+              <span className="text-muted-foreground">(one per line)</span>
+            </Label>
+            <textarea
+              id="What_we_offer"
+              name="What_we_offer"
+              value={form.What_we_offer}
+              onChange={handleChange}
+              rows={4}
+              className={cn(fieldBase, 'resize-none')}
             />
           </div>
           <div>

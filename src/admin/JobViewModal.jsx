@@ -147,9 +147,11 @@ export default function JobViewModal({ job, onClose, onEdit }) {
           <BulletList text={job.responsibilities} />
         </Section>
 
-        <Section title="Requirements">
-          <BulletList text={job.requirements} />
-        </Section>
+        {job.What_we_offer && (
+          <Section title="What we offer">
+            <BulletList text={job.What_we_offer} />
+          </Section>
+        )}
 
         {job.How_toapply && (
           <Section title="How to apply">
