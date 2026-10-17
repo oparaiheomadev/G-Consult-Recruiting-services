@@ -4,8 +4,8 @@ import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
-import logoLight from '@/assets/Gconsults-light.png';
-import logoDark from '@/assets/Gconsults-dark.png';
+import logoLight from '@/assets/gconsult-light.png';
+import logoDark from '@/assets/gconsult-dark.png';
 import { motion } from 'motion/react';
 
 const links = [

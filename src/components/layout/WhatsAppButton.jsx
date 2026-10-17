@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { X } from 'lucide-react';
 
-const PHONE = '2348106863792'; // no plus, no spaces
+const PHONE = '2347071333000'; // no plus, no spaces
 const MESSAGE = 'Hello Gconsult, I would like to talk about hiring for a role.';
 
 const href = `https://wa.me/${PHONE}?text=${encodeURIComponent(MESSAGE)}`;
