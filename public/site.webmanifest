@@ -1,6 +1,6 @@
 {
-  "name": " Professional Services",
-  "short_name": "",
+  "name": "GConsults Professional Services",
+  "short_name": "GConsults",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "111c13",
-  "background_color": "#111c13f",
+  "theme_color": "#111c13",
+  "background_color": "#111c13",
   "display": "standalone"
 }

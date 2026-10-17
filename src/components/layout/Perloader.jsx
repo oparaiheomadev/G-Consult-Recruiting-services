@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
-import logoLight from '@/assets/Gconsults-light.png';
+import logoLight from '@/assets/gconsult-light.png';
 
 export default function Preloader() {
   const reduceMotion = useReducedMotion();

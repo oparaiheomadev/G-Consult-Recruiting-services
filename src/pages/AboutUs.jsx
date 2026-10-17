@@ -11,7 +11,7 @@ export default function AboutUs() {
   return (
     <main>
       <Seo
-        title="About  | One Of The Fastest Growing Recruitment Firm in Lagos"
+        title="About GConsults | One Of The Fastest Growing Recruitment Firm in Lagos"
         description="A Lagos recruitment practice built around senior attention rather than volume. Every search is run by the consultant who took the brief."
         path="/about"
       />

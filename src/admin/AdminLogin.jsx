@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import logoLight from '@/assets/Gconsults-light.png';
+import logoLight from '@/assets/gconsult-light.png';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');

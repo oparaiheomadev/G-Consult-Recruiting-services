@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import { Mail, MapPin, Phone } from 'lucide-react';
-import logoDark from '@/assets/Gconsults-dark.png';
+import logoDark from '@/assets/gconsult-dark.png';
 
 const columns = [
   {

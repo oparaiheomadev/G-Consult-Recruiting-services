@@ -1,5 +1,7 @@
-export default function Seo({ title, description, path }) {
-  const url = `https://yourdomain.com${path}`;
+const SITE_URL = 'https://www.gconsultservices.com.ng';
+
+export default function Seo({ title, description, path = '' }) {
+  const url = `${SITE_URL}${path}`;
 
   return (
     <>

@@ -120,7 +120,7 @@ export default function HomeHero() {
 
           <motion.p
             {...item}
-            className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground"
+            className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground/60"
           >
             Gconsults is a recruitment and executive search firm placing senior
             and mid-level professionals with organisations across Nigeria.
@@ -133,12 +133,15 @@ export default function HomeHero() {
             <Button asChild size="lg" className="rounded-full px-7">
               <Link to="/contact">Hire With Us</Link>
             </Button>
-            <Link
-              to="/services"
-              className="border-b border-border pb-1 text-sm text-foreground transition-colors duration-300 hover:border-primary hover:text-primary"
+
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="rounded-full border-primary-foreground/30 bg-transparent px-7 text-muted-foreground/40  hover:text-muted-foreground"
             >
-              See how we work
-            </Link>
+              <Link to="/services">See how we work</Link>
+            </Button>
           </motion.div>
         </div>
       </motion.div>
