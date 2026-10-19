@@ -9,7 +9,7 @@ export default function Service() {
   return (
     <main>
       <Seo
-        title="Recruitment Services | Executive Search, Payroll and HR Consulting"
+        title="Executive Search, Recruitment & Payroll Services | GConsults"
         description="Executive search, core recruitment, HR consulting and payroll for organisations across Nigeria. Timelines, fees and what each service involves."
         path="/services"
       />

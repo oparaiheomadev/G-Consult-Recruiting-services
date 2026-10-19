@@ -64,7 +64,7 @@ export default function Privacy() {
   return (
     <main className="bg-secondary pt-32 pb-24 md:pt-40">
       <Seo
-        title="Privacy Notice | Gconsult Professional Services"
+        title="Privacy Notice | GConsults Professional Services"
         description="What personal information Gconsult collects through this website, why we collect it, who we share it with and how to have it removed."
         path="/privacy"
       />

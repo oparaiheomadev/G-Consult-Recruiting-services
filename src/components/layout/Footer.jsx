@@ -37,7 +37,7 @@ export default function Footer() {
             <Link to="/" className="inline-block">
               <img
                 src={logoDark}
-                alt="Gconsults Professional Services"
+                alt="GConsults Professional Services"
                 className="h-9 w-auto shrink-0"
               />
             </Link>
@@ -51,7 +51,7 @@ export default function Footer() {
               href="https://www.linkedin.com/company/Gconsults"
               target="_blank"
               rel="noreferrer noopener"
-              aria-label="Gconsults on LinkedIn"
+              aria-label="GConsults on LinkedIn"
               className="mt-6 inline-flex size-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors duration-300 hover:border-primary/50 hover:text-foreground"
             ></a>
           </div>
@@ -98,7 +98,7 @@ export default function Footer() {
                     className="mt-0.5 size-4 shrink-0 text-primary"
                     aria-hidden="true"
                   />
-                  <span>+234 810 686 3792</span>
+                  <span>+234 707 133 3000</span>
                 </a>
               </li>
 
@@ -122,7 +122,7 @@ export default function Footer() {
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 md:flex-row md:items-center">
           <p className="text-xs text-muted-foreground">
-            © {year} Gconsults Professional Services. All rights reserved.
+            © {year} GConsults Professional Services. All rights reserved.
           </p>
 
           <div className="flex items-center gap-6">

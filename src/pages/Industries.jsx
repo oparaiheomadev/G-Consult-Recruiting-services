@@ -7,13 +7,13 @@ export default function Industries() {
   return (
     <main>
       <Seo
-        title="Industries We Recruit In | Fashion, Property, FMCG, Health, Tech and others"
-        description="Five sectors we have actually placed people in, the roles we filled, and what hiring in each one really involves."
+        title="Industries We Recruit For | GConsults Nigeria"
+        description="Fashion, property, FMCG, health, technology and more. See the sectors we have placed people in, the roles we filled, and what hiring in each one involves."
         path="/industries"
       />
       <PageHero
         badge="Where we work"
-        title="Five sectors we know from the inside."
+        title=" Sectors we know from the inside and more."
         intro="We only list industries where we have actually placed people. These are the roles we have filled and what hiring in each one really involves."
       />
       <IndustrySectors />

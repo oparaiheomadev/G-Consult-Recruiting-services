@@ -103,7 +103,7 @@ export default function JobDetail() {
   return (
     <main className="bg-surface pb-24">
       <Seo
-        title={`${job.title} at ${job.company} | Gconsult`}
+        title={`${job.title} at ${job.company} | GConsults`}
         description={job.description?.slice(0, 150)}
         path={`/jobs/${job.slug}`}
       />

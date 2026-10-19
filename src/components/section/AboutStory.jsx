@@ -43,7 +43,7 @@ export default function AboutStory() {
             className="mt-7 max-w-xl space-y-5 text-base leading-relaxed text-muted-foreground"
           >
             <p>
-              Gconsults was founded in 2020 by a practising HR professional who
+              GConsults was founded in 2020 by a practising HR professional who
               had spent years on the client side of recruitment, receiving
               shortlists of twenty people for a role that needed five, and
               interviewing candidates nobody had spoken to properly.

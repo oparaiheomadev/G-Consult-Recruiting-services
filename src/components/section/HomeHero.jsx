@@ -122,7 +122,7 @@ export default function HomeHero() {
             {...item}
             className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground/60"
           >
-            Gconsults is a recruitment and executive search firm placing senior
+            GConsults is a recruitment and executive search firm placing senior
             and mid-level professionals with organisations across Nigeria.
           </motion.p>
 

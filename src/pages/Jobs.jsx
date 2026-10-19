@@ -42,7 +42,7 @@ export default function Jobs() {
   return (
     <main>
       <Seo
-        title="Open Roles | Gconsult Recruitment, Nigeria"
+        title="Open Roles | GConsults Recruitment, Nigeria"
         description="Current vacancies we are recruiting for across Nigeria. Browse open roles and apply directly."
         path="/jobs"
       />

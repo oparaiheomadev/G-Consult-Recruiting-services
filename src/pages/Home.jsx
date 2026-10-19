@@ -13,8 +13,8 @@ export default function Home() {
   return (
     <main>
       <Seo
-        title=" | Recruitment and Executive Search in Lagos, Nigeria"
-        description=" places senior and mid-level professionals with organisations across Nigeria. First shortlist within 48 hours, five candidates, 90-day replacement cover."
+        title="GConsults | Recruitment and Executive Search in Lagos, Nigeria"
+        description="GConsult places senior and mid-level professionals with organisations across Nigeria. First shortlist within 48 hours, five candidates, 90-day replacement cover."
         path="/"
       />
       <HomeHero />
