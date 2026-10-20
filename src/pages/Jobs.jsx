@@ -47,11 +47,11 @@ export default function Jobs() {
         path="/jobs"
       />
 
-      {/* <PageHero
+      <PageHero
         badge="Open roles"
         title="Roles we are recruiting for."
         intro="Every listing here is a live search we are running for a client. Apply directly, and a consultant reads every application."
-      /> */}
+      />
 
       <section className="bg-surface py-16 md:py-20">
         <div className="mx-auto max-w-3xl px-6">
@@ -103,7 +103,7 @@ export default function Jobs() {
                 something fits, a consultant contacts you directly.
               </p>
               <Button asChild className="mt-7 rounded-full px-7">
-                <a href="mailto:gconsultrecruitments@gmail.com?subject=CV%20submission">
+                <a href="mailto:info@gconsultservices.com.ng?subject=CV%20submission">
                   Send us your CV
                 </a>
               </Button>

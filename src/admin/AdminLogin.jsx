@@ -59,7 +59,7 @@ export default function AdminLogin() {
       <div className="w-full max-w-sm">
         <img
           src={logoLight}
-          alt=" Professional Services"
+          alt="GConsults Professional Services"
           className="mx-auto mb-8 h-9 w-auto shrink-0"
         />
 
@@ -93,7 +93,7 @@ export default function AdminLogin() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 autoComplete="email"
-                placeholder="you@.ng"
+                placeholder="you@gconsultservices.com.ng"
                 className="mt-2 bg-background"
               />
             </div>

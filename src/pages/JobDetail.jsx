@@ -213,6 +213,12 @@ export default function JobDetail() {
             </Section>
           )}
 
+          {job.What_we_offer && (
+            <Section title="What we offer">
+              <BulletList text={job.What_we_offer} />
+            </Section>
+          )}
+
           {job.How_toapply && (
             <Section title="How to apply">
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
@@ -247,7 +253,7 @@ export default function JobDetail() {
                 variant="outline"
                 className="mt-7 rounded-full px-7"
               >
-                <a href="mailto:gconsultrecruitments@gmail.com?subject=CV%20submission">
+                <a href="mailto:info@gconsultservices.com.ng?subject=CV%20submission">
                   Send us your CV
                 </a>
               </Button>

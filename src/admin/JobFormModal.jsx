@@ -39,19 +39,22 @@ const sectors = [
   'Health',
   'Technology',
   'NGO',
-  'Officer',
+  'Administration',
   'Banking',
   'Oil and Gas',
   'Others',
 ];
 
+// A short random ending keeps two posts of the same role from sharing a link
 function makeSlug(title, company) {
-  return `${title} ${company}`
+  const base = `${title} ${company}`
     .toLowerCase()
     .trim()
     .replace(/[^a-z0-9\s-]/g, '')
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-');
+  const suffix = Math.random().toString(36).slice(2, 7);
+  return `${base}-${suffix}`;
 }
 
 const fieldBase =
